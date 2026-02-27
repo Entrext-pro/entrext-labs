@@ -2,13 +2,13 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 export const ProblemStatement = () => (
-  <section id="thesis" className="py-32 md:py-56 px-6 bg-black text-white relative z-10 border-t-8 border-black">
+  <section id="thesis" className="py-8 md:py-16 px-6 bg-black text-white relative z-10 border-t-8 border-black">
     <div className="max-w-6xl mx-auto text-center space-y-32">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="flex flex-col items-center gap-8"
+        className="flex flex-col items-start justify-center gap-8"
       >
         <div className="bg-yellow-400 text-black px-5 py-2 rounded-lg font-mono text-[10px] font-black uppercase tracking-[0.3em] border-4 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]">
           THE_PROBLEM

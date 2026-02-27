@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Trophy, Flame, Activity, Award, ArrowUpRight, Play } from 'lucide-react';
 
 export const ToolOfTheMonth = () => (
-  <section className="py-32 md:py-56 px-6 bg-black text-white relative z-10 overflow-hidden border-t-8 border-black">
+  <section className="py-8 md:py-16 px-6 bg-black text-white relative z-10 overflow-hidden border-t-8 border-black">
     <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none select-none">
       <div className="flex animate-marquee whitespace-nowrap">
         {[...Array(5)].map((_, i) => (
@@ -19,7 +19,7 @@ export const ToolOfTheMonth = () => (
             NEW_DEPLOYMENT
           </div>
           <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-[8rem] font-display uppercase italic font-black leading-[0.9] md:leading-[0.8] tracking-tighter">
-           <a href="https://secretroom.entrext.in/"> Secret<span className="text-yellow-400">room.</span></a>
+            Secret<span className="text-yellow-400">room.</span>
           </h2>
           <p className="text-base md:text-xl font-bold leading-tight max-w-2xl opacity-60">
             Ephemeral anonymous chat service. No signups, no history, no tracking. Just pure, unadulterated vibes for 24 hours.
