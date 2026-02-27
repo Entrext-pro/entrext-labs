@@ -16,7 +16,8 @@ const jetBrainsMono = JetBrains_Mono({
     variable: "--font-jetbrains-mono",
 });
 
-const baseUrl = process.env.APP_URL || "https://entrextlabs.entrext.com";
+const rawBaseUrl = process.env.APP_URL || "https://entrextlabs.entrext.com";
+const baseUrl = rawBaseUrl.replace(/['"]/g, '').replace(/\/+$/, '');
 
 export const metadata: Metadata = {
     metadataBase: new URL(baseUrl),
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
     other: {
         "article:published_time": new Date(2025, 2, 27).toISOString(),
         "article:modified_time": new Date().toISOString(),
-        "google-site-verification": "G-GEZ4BLC9X0", // Linking your analytics/search console
+        "google-site-verification": "G-GEZ4BLC9X0", // NOTE: This looks like a GA ID. Ensure this is your actual Search Console verification token.
     },
     robots: {
         index: true,
