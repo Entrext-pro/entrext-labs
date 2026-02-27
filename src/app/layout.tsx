@@ -46,8 +46,10 @@ export const metadata: Metadata = {
         images: [
             {
                 url: `${baseUrl}/Entrext.png`,
+                secureUrl: `${baseUrl}/Entrext.png`,
                 width: 1024,
                 height: 1024,
+                type: "image/png",
                 alt: "Entrext Labs - Innovation Accelerator",
             },
         ],
@@ -61,6 +63,7 @@ export const metadata: Metadata = {
     other: {
         "article:published_time": new Date(2025, 2, 27).toISOString(),
         "article:modified_time": new Date().toISOString(),
+        "google-site-verification": "G-GEZ4BLC9X0", // Linking your analytics/search console
     },
     robots: {
         index: true,
