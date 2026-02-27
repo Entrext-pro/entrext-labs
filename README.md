@@ -1,6 +1,4 @@
 <div align="center">
-  <img width="1200" height="475" alt="Entrext Labs Banner" src="./public/banner.png" />
-
   # ⚡ ENTREXT LABS
   **High-Velocity Micro-SaaS Studio & Venture Lab**
 
@@ -107,7 +105,4 @@ Some of our recent weekly deployments:
 
 We are always looking for "Build in Public" developers and ambitious founding engineers. Check our [Manifesto](/teams) for open roles.
 
-<div align="center">
-  <p>Built with ⚡ by <b>Entrext Labs</b></p>
-  <p><i>Ideate. Build. Ship. Repeat.</i></p>
 </div>
