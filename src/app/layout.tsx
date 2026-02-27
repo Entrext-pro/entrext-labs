@@ -42,21 +42,27 @@ export const metadata: Metadata = {
         url: baseUrl,
         siteName: "Entrext Labs",
         title: "Entrext Labs | High-Velocity Micro-SaaS Factory",
-        description: "Shipping 5 micro-SaaS products every week. Turning market friction into functional software.",
+        description: "We build and ship 5 micro-SaaS products every week. Turning market friction into functional software at terminal velocity.",
         images: [
+            {
+                url: "/banner.png",
+                width: 1024,
+                height: 1024,
+                alt: "Entrext Labs - Innovation Accelerator",
+            },
             {
                 url: "/Entrext.png",
                 width: 512,
                 height: 512,
-                alt: "Entrext Labs Logo",
+                alt: "Entrext Labs Square Logo",
             },
         ],
     },
     twitter: {
-        card: "summary",
+        card: "summary_large_image",
         title: "Entrext Labs | High-Velocity Micro-SaaS Factory",
         description: "Shipping 5 micro-SaaS products every week. Terminal velocity software production.",
-        images: ["/Entrext.png"],
+        images: ["/banner.png"],
     },
     robots: {
         index: true,
@@ -69,6 +75,13 @@ export const metadata: Metadata = {
             'max-snippet': -1,
         },
     },
+    category: 'technology',
+};
+
+export const viewport = {
+    themeColor: '#FFD700', // Gold/Yellow to match your branding
+    width: 'device-width',
+    initialScale: 1,
 };
 
 export default function RootLayout({
