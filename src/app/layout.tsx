@@ -45,16 +45,10 @@ export const metadata: Metadata = {
         description: "We build and ship 5 micro-SaaS products every week. Turning market friction into functional software at terminal velocity.",
         images: [
             {
-                url: "/Entrext.png",
+                url: `${baseUrl}/Entrext.png`,
                 width: 1024,
                 height: 1024,
                 alt: "Entrext Labs - Innovation Accelerator",
-            },
-            {
-                url: "/Entrext.png",
-                width: 512,
-                height: 512,
-                alt: "Entrext Labs Square Logo",
             },
         ],
     },
@@ -62,7 +56,11 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Entrext Labs | High-Velocity Micro-SaaS Factory",
         description: "Shipping 5 micro-SaaS products every week. Terminal velocity software production.",
-        images: ["/banner.png"],
+        images: [`${baseUrl}/Entrext.png`],
+    },
+    other: {
+        "article:published_time": new Date(2025, 2, 27).toISOString(),
+        "article:modified_time": new Date().toISOString(),
     },
     robots: {
         index: true,
