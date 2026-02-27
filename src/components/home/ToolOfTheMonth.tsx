@@ -25,12 +25,15 @@ export const ToolOfTheMonth = () => (
             Ephemeral anonymous chat service. No signups, no history, no tracking. Just pure, unadulterated vibes for 24 hours.
           </p>
           <div className="flex flex-wrap gap-6">
-            <button 
-              onClick={() => window.location.href = 'https://secretroom.ai'}
+            <a 
+              href="https://secretroom.entrext.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              // onClick={() => window.location.href = 'https://secretroom.entrext.in'}
               className="btn-primary px-6 py-4 md:px-10 md:py-5 text-lg md:text-xl flex items-center gap-4"
             >
               LAUNCH APP <ArrowUpRight size={24} strokeWidth={3} />
-            </button>
+            </a>
             <div className="flex items-center gap-4 px-4 py-3 md:px-8 md:py-5 border-4 border-white/10 rounded-2xl font-mono text-xs md:text-sm font-black uppercase tracking-widest">
               <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse border-2 border-black" />
               1,240 Active Users

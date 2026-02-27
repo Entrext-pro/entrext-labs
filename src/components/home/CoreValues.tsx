@@ -40,7 +40,7 @@ export const CoreValues = () => {
                         <div className="inline-block bg-yellow-400 text-black px-4 py-1 rounded-lg font-mono text-[10px] font-black mb-8 uppercase tracking-widest border-2 border-black">
                             Foundational_Pillars
                         </div>
-                        <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-[8rem] font-display uppercase italic font-black leading-[0.9] md:leading-[0.8] tracking-tighter">
+                        <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-[8rem] font-display uppercase italic font-black leading-[0.9] md:leading-[0.8] tracking-tighter md:ml-8">
                             The <span className="text-black drop-shadow-[4px_4px_0px_rgba(250,204,21,1)]">4 C's.</span>
                         </h2>
                     </div>
@@ -57,10 +57,10 @@ export const CoreValues = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1, type: "spring", stiffness: 200 }}
-                            className="sticker-card p-10 border-4 border-black bg-white shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group overflow-hidden relative"
+                            className="sticker-card p-6 md:p-8 lg:p-10 border-4 border-black bg-white shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group overflow-hidden relative"
                         >
-                            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                                <div className="text-8xl font-display font-black italic select-none">C</div>
+                            <div className="absolute top-0 -right-1 p-2 opacity-5 group-hover:opacity-10 transition-opacity">
+                                <div className="text-7xl font-display font-black italic select-none">C</div>
                             </div>
 
                             <div className="font-mono text-[10px] font-black opacity-30 mb-8 tracking-widest">
@@ -69,7 +69,7 @@ export const CoreValues = () => {
                             <div className="w-16 h-16 bg-white border-4 border-black rounded-2xl flex items-center justify-center mb-10 shadow-sticker-hover group-hover:bg-yellow-400 group-hover:-rotate-6 transition-all duration-300">
                                 {value.icon}
                             </div>
-                            <h3 className="text-xl md:text-3xl font-display uppercase italic font-black mb-6 leading-none">
+                            <h3 className="text-xl md:-ml-6 md:text-2xl lg:text-3xl font-display uppercase italic font-black mb-6 leading-[0.9] tracking-tighter">
                                 {value.title}
                             </h3>
                             <p className="text-sm md:text-base font-bold opacity-60 leading-tight">
