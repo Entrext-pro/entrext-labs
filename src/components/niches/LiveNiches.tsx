@@ -46,7 +46,7 @@ export const LiveNiches = ({ niches }: LiveNichesProps) => {
             className="sticker-card p-8 md:p-10 flex flex-col h-full min-h-[350px] md:min-h-[400px] relative group bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]"
           >
             <div className="flex items-center justify-between mb-8 md:mb-12">
-              <div className="w-12 h-12 md:w-16 md:h-16 bg-yellow-400 border-4 border-black rounded-2xl flex items-center justify-center font-display text-2xl md:text-4xl font-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-yellow-400 border-4 border-black rounded-2xl flex items-center justify-center font-display text-2xl md:text-4xl font-black shadow-sticker-hover">
                 {String(i + 1).padStart(2, '0')}
               </div>
               <div className="flex items-center gap-2 bg-black text-white px-4 md:px-6 py-2 rounded-full shadow-lg">
@@ -55,7 +55,7 @@ export const LiveNiches = ({ niches }: LiveNichesProps) => {
               </div>
             </div>
 
-            <h3 className="text-2xl md:text-5xl font-display uppercase italic font-black leading-[0.8] mb-6 md:mb-8 tracking-tighter">{niche.title}</h3>
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-display uppercase italic font-black leading-[0.9] mb-6 md:mb-8 tracking-tighter">{niche.title}</h3>
             <p className="text-lg md:text-xl font-bold leading-tight mb-8 md:mb-10 flex-1 opacity-60">
               {niche.desc}
             </p>

@@ -8,13 +8,17 @@ import { ProblemStatement } from '../components/home/ProblemStatement';
 import { SupportResources } from '../components/home/SupportResources';
 import { FoundersWanted } from '../components/home/FoundersWanted';
 import { CommunitySection } from '../components/home/CommunitySection';
+import { CoreValues } from '../components/home/CoreValues';
+
 
 export const Home = () => {
   return (
     <div className="pt-16">
       <Hero />
       <TheModel />
+      <CoreValues />
       <ToolOfTheMonth />
+
       <ProblemStatement />
       <SupportResources />
       <FoundersWanted />

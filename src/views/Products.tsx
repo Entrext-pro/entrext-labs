@@ -32,7 +32,7 @@ const allProductsByMonth: Record<string, any[]> = {
     { name: "Vouched", desc: "Collect and display testimonials everywhere with zero friction.", url: "vouched.entrext.com", team: "03", builder: "Team 3: Garv, Hitanshi, Tarasha", niche: "Marketing" },
     { name: "Chronos", desc: "High-velocity time management for production teams.", url: "chronos.entrext.com", team: "02", builder: "Team 2: Aryan, Disha", niche: "Productivity" },
     { name: "Nurturely", desc: "Automated customer nurture loops for small businesses.", url: "nurturely.entrext.com", team: "02", builder: "Team 2: Aryan, Disha", niche: "SaaS" },
-    { name: "Captionist", desc: "AI-powered caption generation for viral social content.", url: "captionist.entrext.com", team: "01", builder: "Team 1: Taha, Ikshit", niche: "Social Media" },
+    { name: "FutureFit", desc: "FutureFit is an AI engine that predicts your future career paths from your habits and goals.", url: "futurefit.entrext.com", team: "02", builder: "Team 2: Aryan, Disha", niche: "Career Planning" },
     { name: "PetVault", desc: "Secure digital storage for all your pet's medical records.", url: "petvault.entrext.com", team: "04", builder: "Team 4: Komal, Vinayak, Surya", niche: "PetTech" },
     { name: "BuildInPublic", desc: "The ultimate OS for building and sharing in public.", url: "buildinpublic.entrext.com", team: "00", builder: "Team 0: Mohit & Manthan", niche: "Creator Economy" },
     { name: "SoloPilot", desc: "AI co-pilot for solo entrepreneurs managing multiple projects.", url: "solopilot.entrext.com", team: "04", builder: "Team 4: Komal, Vinayak, Surya", niche: "AI SaaS" },

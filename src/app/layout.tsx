@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ClientLayout } from "@/components/ClientLayout";
+import Script from "next/script";
 
 const spaceGrotesk = Space_Grotesk({
     subsets: ["latin"],
@@ -77,8 +78,19 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className="scroll-smooth">
-            <body className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} antialiased`}>
-                <ClientLayout>{children}</ClientLayout>
+            <head>
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=G-GEZ4BLC9X0"
+                    strategy="afterInteractive"
+                />
+                <Script id="google-analytics" strategy="afterInteractive">
+                    {`
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){window.dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', 'G-GEZ4BLC9X0');
+                        `}
+                </Script>
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
@@ -99,6 +111,9 @@ export default function RootLayout({
                         }),
                     }}
                 />
+            </head>
+            <body className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} antialiased`}>
+                <ClientLayout>{children}</ClientLayout>
             </body>
         </html>
     );

@@ -33,11 +33,17 @@ export const ComingSoonNiches = ({ niches, liveNichesCount }: ComingSoonNichesPr
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-        <AnimatePresence mode="popLayout">
+      <motion.div 
+        layout
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12"
+      >
+        <AnimatePresence>
+
           {displayedComing.map((niche, i) => (
             <motion.div
+              layout
               key={niche.title}
+
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9 }}
@@ -56,7 +62,7 @@ export const ComingSoonNiches = ({ niches, liveNichesCount }: ComingSoonNichesPr
                 </div>
               </div>
 
-              <h3 className="text-2xl md:text-5xl font-display uppercase italic font-black leading-[0.8] mb-6 md:mb-8 tracking-tighter">{niche.title}</h3>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-display uppercase italic font-black leading-[0.9] mb-6 md:mb-8 tracking-tighter">{niche.title}</h3>
               <p className="text-lg md:text-xl font-bold leading-tight mb-8 md:mb-10 flex-1 opacity-60">
                 {niche.desc}
               </p>
@@ -70,6 +76,7 @@ export const ComingSoonNiches = ({ niches, liveNichesCount }: ComingSoonNichesPr
           ))}
         </AnimatePresence>
 
+
         {/* Propose Card */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -82,13 +89,14 @@ export const ComingSoonNiches = ({ niches, liveNichesCount }: ComingSoonNichesPr
           <div className="w-24 h-24 md:w-32 md:h-32 bg-yellow-400 text-black rounded-full flex items-center justify-center mb-8 md:mb-10 group-hover:rotate-90 transition-transform shadow-[8px_8px_0px_0px_rgba(255,255,255,0.2)] border-4 border-black">
             <Plus size={64} strokeWidth={4} />
           </div>
-          <h3 className="text-3xl md:text-5xl font-display uppercase italic font-black mb-6 md:mb-8 tracking-tighter">YOUR NICHE?</h3>
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-display uppercase italic font-black mb-6 md:mb-8 tracking-tighter">YOUR NICHE?</h3>
           <p className="text-lg md:text-2xl font-black uppercase tracking-widest opacity-40 max-w-[240px]">Propose a vertical you want to lead.</p>
           <div className="mt-8 md:mt-10 bg-white text-black px-8 md:px-12 py-4 md:py-5 rounded-2xl font-black text-xl md:text-2xl uppercase tracking-widest group-hover:bg-yellow-400 transition-all border-4 border-black shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)]">
             Propose Now
           </div>
         </motion.div>
-      </div>
+      </motion.div>
+
 
       <div className="mt-16 md:mt-24 flex justify-center">
         <button

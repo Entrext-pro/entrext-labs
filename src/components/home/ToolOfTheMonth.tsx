@@ -19,7 +19,7 @@ export const ToolOfTheMonth = () => (
             NEW_DEPLOYMENT
           </div>
           <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-[8rem] font-display uppercase italic font-black leading-[0.9] md:leading-[0.8] tracking-tighter">
-            Secret<span className="text-yellow-400">room.</span>
+           <a href="https://secretroom.entrext.in/"> Secret<span className="text-yellow-400">room.</span></a>
           </h2>
           <p className="text-base md:text-xl font-bold leading-tight max-w-2xl opacity-60">
             Ephemeral anonymous chat service. No signups, no history, no tracking. Just pure, unadulterated vibes for 24 hours.

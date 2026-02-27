@@ -53,11 +53,33 @@ const faqs = [
 ];
 
 export const FAQ = () => {
+  const sectionRef = React.useRef<HTMLElement>(null);
+  const fundingRef = React.useRef<HTMLDivElement>(null);
   const [showAll, setShowAll] = React.useState(false);
   const displayedFaqs = showAll ? faqs : faqs.slice(0, 4);
 
+  const toggleShowAll = () => {
+    if (showAll && fundingRef.current) {
+      // Calculate position so we end up at the Funding section after layout shrinks
+      // We use a slight delay or scrollIntoView to handle the layout shift
+      setTimeout(() => {
+        fundingRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+    }
+    setShowAll(!showAll);
+  };
+
+
+
   return (
-    <section className="py-32 md:py-56 px-6 md:px-8 max-w-7xl mx-auto relative z-10">
+    <section
+      ref={sectionRef}
+      className="py-32 md:py-56 px-6 md:px-8 max-w-7xl mx-auto relative z-10"
+    >
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -75,11 +97,17 @@ export const FAQ = () => {
         <p className="text-base md:text-xl font-bold leading-tight max-w-2xl mx-auto opacity-60">Everything you need to know before joining the lab. We believe in radical transparency.</p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-        <AnimatePresence mode="popLayout">
+      <motion.div
+        layout
+        className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16"
+      >
+        <AnimatePresence>
+
           {displayedFaqs.map((faq, i) => (
             <motion.div
+              layout
               key={faq.q}
+
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -106,13 +134,15 @@ export const FAQ = () => {
             </motion.div>
           ))}
         </AnimatePresence>
-      </div>
+      </motion.div>
+
 
       <div className="mt-24 flex justify-center">
         <button
-          onClick={() => setShowAll(!showAll)}
+          onClick={toggleShowAll}
           className="btn-secondary px-6 py-4 md:px-10 md:py-5 text-lg md:text-xl flex items-center gap-4"
         >
+
           {showAll ? "SEE LESS" : "SEE MORE QUESTIONS"}
           <ChevronDown className={`transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} size={24} strokeWidth={3} />
         </button>
@@ -120,7 +150,9 @@ export const FAQ = () => {
 
       {/* Funding Section */}
       <motion.div
+        ref={fundingRef}
         initial={{ opacity: 0, y: 30 }}
+
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className="mt-48 p-8 md:p-12 lg:p-24 bg-black text-white rounded-[3rem] border-8 border-black shadow-[20px_20px_0px_0px_rgba(0,0,0,0.2)] relative overflow-hidden"
@@ -134,10 +166,10 @@ export const FAQ = () => {
             <span className="text-yellow-400">Have you raised any capital?</span>
           </h3>
           <div className="space-y-8 text-base md:text-xl font-bold leading-tight opacity-80">
-            <p>No — we are fully bootstrapped and intentionally so.</p>
+            <p>No, we are fully bootstrapped and intentionally so.</p>
             <p>We believe that in today’s digital world, it doesn’t take significant capital to create meaningful products. What matters far more is an outcome-driven approach, speed, and ownership.</p>
             <p>Funding may come into play only after a product hits clear milestones and proves real demand. Until then, we choose to build with discipline, leverage, and focus.</p>
-            <p className="text-yellow-400 uppercase tracking-widest font-black">We are a bootstrapped company — and we intend to remain that way.</p>
+            <p className="text-yellow-400 uppercase tracking-widest font-black">We are a bootstrapped company and we intend to remain that way.</p>
           </div>
         </div>
       </motion.div>
