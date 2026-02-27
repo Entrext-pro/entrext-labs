@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         description: "We build and ship 5 micro-SaaS products every week. Turning market friction into functional software at terminal velocity.",
         images: [
             {
-                url: "/banner.png",
+                url: "/Entrext.png",
                 width: 1024,
                 height: 1024,
                 alt: "Entrext Labs - Innovation Accelerator",
