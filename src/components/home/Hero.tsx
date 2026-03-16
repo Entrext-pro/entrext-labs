@@ -89,7 +89,7 @@ export const Hero = () => (
       {[
         { label: "Active Units", value: "05", color: "bg-blue-400", sub: "READY" },
         { label: "Weekly Target", value: "05", color: "bg-emerald-400", sub: "SHIPS" },
-        { label: "Products Shipped", value: "200+", color: "bg-white", sub: "LIVE" },
+        { label: "Products Shipped", value: "20+", color: "bg-white", sub: "MONTHLY" },
         { label: "Vibe Check", value: "Elite", color: "bg-rose-400", sub: "PUBLIC" }
       ].map((stat, i) => (
         <motion.div

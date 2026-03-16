@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight, Plus, ChevronDown } from 'lucide-react';
-
-interface Niche {
-  title: string;
-  desc: string;
-  color: string;
-}
+import { Plus, ChevronDown, ArrowUpRight } from 'lucide-react';
+import { NicheCard } from './NicheCard';
+import { Niche } from '@/types';
 
 interface ComingSoonNichesProps {
   niches: Niche[];
@@ -40,39 +36,12 @@ export const ComingSoonNiches = ({ niches, liveNichesCount }: ComingSoonNichesPr
         <AnimatePresence>
 
           {displayedComing.map((niche, i) => (
-            <motion.div
-              layout
-              key={niche.title}
-
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              whileHover={{ y: -10, rotate: i % 2 === 0 ? 1 : -1 }}
-              className="sticker-card p-8 md:p-10 flex flex-col h-full min-h-[350px] md:min-h-[400px] relative group opacity-60 hover:opacity-100 transition-all bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]"
-            >
-              <div className="flex items-center justify-between mb-8 md:mb-12">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-black text-white rounded-2xl flex items-center justify-center font-display text-2xl md:text-4xl font-black shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]">
-                  {String(i + 1 + liveNichesCount).padStart(2, '0')}
-                </div>
-                <div className="flex items-center gap-2 bg-yellow-400 text-black px-4 md:px-6 py-2 rounded-full border-2 border-black shadow-lg">
-                  <div className="w-2 h-2 md:w-3 md:h-3 bg-black rounded-full" />
-                  <span className="font-mono text-[8px] md:text-[10px] font-black uppercase tracking-widest">COMING_SOON</span>
-                </div>
-              </div>
-
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-display uppercase italic font-black leading-[0.9] mb-6 md:mb-8 tracking-tighter">{niche.title}</h3>
-              <p className="text-lg md:text-xl font-bold leading-tight mb-8 md:mb-10 flex-1 opacity-60">
-                {niche.desc}
-              </p>
-
-              <div className="pt-6 md:pt-8 border-t-4 border-black flex items-center justify-between">
-                <button className="btn-secondary w-full flex items-center justify-center gap-4 text-lg md:text-xl py-4 md:py-5">
-                  Apply to Lead <ArrowUpRight size={28} strokeWidth={3} />
-                </button>
-              </div>
-            </motion.div>
+            <NicheCard 
+              key={niche.id} 
+              niche={niche} 
+              index={i + liveNichesCount} 
+              isLive={false} 
+            />
           ))}
         </AnimatePresence>
 
