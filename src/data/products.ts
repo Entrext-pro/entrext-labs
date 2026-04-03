@@ -29,6 +29,16 @@ export const allProductsByMonth: Record<string, Product[]> = {
     { name: "InviteFlow", desc: "Seamless event invitation and guest management system.", url: "inviteflow.entrext.com", team: "01", builder: "Team 1: Taha, Ikshit", niche: "EventTech", nicheId: "founder-startup-business" },
     { name: "SubSafe", desc: "Track and manage all your recurring subscriptions in one place.", url: "subsafe.entrext.com", team: "01", builder: "Team 1: Taha, Ikshit", niche: "FinTech", nicheId: "founder-startup-business" }
   ],
+  "MARCH": [
+    { name: "Fingenius", desc: "AI Wealth Mentor that automatically detects hidden subscriptions, optimizes your taxes, and builds your custom early retirement (FIRE) roadmap.", url: "fingenius.entrext.com", team: "04", builder: "Team 4: Komal, Tirth, Anurag", niche: "FinTech", nicheId: "founder-startup-business" },
+    { name: "Ctrlsense", desc: "Smarter way to search your files with the keywords inside them.", url: "ctrlsense.entrext.com", team: "04", builder: "Team 4: Komal, Tirth, Anurag", niche: "AI Productivity", nicheId: "ai-workflows-automations" },
+    { name: "AquaOS", desc: "Aquatic animals management tool that tracks your water parameters, identifies diseases, checks fish compatibility, and tells you exactly what to do before your tank crashes.", url: "aquaos.entrext.com", team: "04", builder: "Team 4: Komal", niche: "PetTech", nicheId: "pet-economy-wellness" },
+    { name: "IntroBuddy", desc: "AI-powered hiring platform that automates everything from resume screening to final selection. Helps you find and hire the right talent faster using intelligent, data-driven decisions.", url: "introbuddy.entrext.com", team: "01", builder: "Team 1: Taha", niche: "HRTech", nicheId: "founder-startup-business" },
+    { name: "Curio Cafe", desc: "A digital café for intellectual curiosity. A space for live, small-group video discussions where knowledge is shared through dialogue.", url: "curiocafe.entrext.com", team: "02", builder: "Team 2: Disha", niche: "EdTech", nicheId: "outcome-based-education" },
+    { name: "OpinVox", desc: "A structured real-time arena for intellectual combat/debates. Rules-based debating modeled after parliamentary standards that measures logic and opinion shift.", url: "opinvox.entrext.com", team: "02", builder: "Team 2: Disha", niche: "Debate Platform", nicheId: "ai-workflows-automations" },
+    { name: "BranchScope", desc: "A career reality simulation platform and decision engine that works across all careers to help you make informed, data-backed decisions.", url: "branchscope.entrext.com", team: "02", builder: "Team 2: Disha, Akash, Siddheshwar", niche: "Career Planning", nicheId: "outcome-based-education" },
+    { name: "Arctic", desc: "A platform specifically made for managing articles and blocks in your own database for fast and easy access without any 3rd party in between.", url: "arctic.entrext.com", team: "01", builder: "Team 1: Ikshit", niche: "AI Productivity", nicheId: "ai-workflows-automations" }
+  ],
 };
 
 export const months = [
