@@ -1,11 +1,13 @@
-import { Teams as TeamsPage } from "@/views/Teams";
+﻿import { Teams as TeamsPage } from "@/views/Teams";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "The Teams & Manifesto",
-    description: "Meet the 5 elite units of Entrext Labs. Our manifesto defines our high-velocity production and founder-first equity model.",
+  title: "The People",
+  description:
+    "Five teams. Fourteen founders. One standard: ship it. Meet the people and manifesto behind Entrext Labs.",
 };
 
 export default function Teams() {
-    return <TeamsPage />;
+  return <TeamsPage />;
 }
+

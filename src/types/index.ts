@@ -5,12 +5,16 @@ export interface SocialLinks {
   twitter?: string;
 }
 
+export type MarketLayer = "B2B" | "B2C" | "HYBRID_PROSUMER";
+
 export interface Niche {
   id: string;
   title: string;
   desc: string;
   color: string;
   socialLinks: SocialLinks;
+  marketLayer: MarketLayer;
+  cluster: string;
 }
 
 export interface Product {
@@ -21,4 +25,9 @@ export interface Product {
   builder: string;
   niche: string;
   nicheId: string;
+  marketLayer: MarketLayer;
+  cluster: string;
+  canonicalId?: string;
+  mergedGroupId?: string;
+  canonicalLabel?: string;
 }

@@ -1,145 +1,211 @@
-"use client";
+﻿"use client";
 
-import React from 'react';
-import { motion } from 'motion/react';
-import { Plus } from 'lucide-react';
-import { Manifesto } from '../components/teams/Manifesto';
+import React from "react";
+import { Manifesto } from "../components/teams/Manifesto";
+import { siteContent } from "@/data/siteContent";
 
-const teams = [
+interface Member {
+  name: string;
+  role: "TECH FOUNDER" | "GROWTH FOUNDER" | "BUILD IN PUBLIC DEV";
+  bio: string;
+  linkedin: string;
+}
+
+interface Team {
+  id: string;
+  members: Member[];
+}
+
+const liSearch = (name: string) => `https://www.linkedin.com/search/results/all/?keywords=${encodeURIComponent(name)}`;
+
+const teams: Team[] = [
   {
     id: "00",
-    name: "Founder & Startup Infra",
-    members: "Mohit & Manthan",
-    focus: "Building a 'company operating system' that removes friction from starting, running, and scaling a business.",
-    color: "bg-yellow-100",
-    tag: "CORE_SYSTEM"
+    members: [
+      {
+        name: "Mohit Sharma",
+        role: "TECH FOUNDER",
+        bio: "One of the earliest builders in the lab. Shipped 3+ products and helped scale one further with a growth partner.",
+        linkedin: liSearch("Mohit Sharma"),
+      },
+      {
+        name: "Youssef Hassan",
+        role: "GROWTH FOUNDER",
+        bio: "Runs Build in Public on X with strong audience-building instincts and distribution focus.",
+        linkedin: liSearch("Youssef Hassan"),
+      },
+    ],
   },
   {
     id: "01",
-    name: "AI, Workflows & Automations",
-    members: "Taha, Ikshit",
-    focus: "Developing mission-critical AI applications, automations, and workflows specifically designed for B2B efficiency.",
-    color: "bg-blue-100",
-    tag: "AI_ENGINE"
+    members: [
+      {
+        name: "Taha Sadikot",
+        role: "TECH FOUNDER",
+        bio: "One of the first people in the lab, leading deep technical builds with clarity.",
+        linkedin: liSearch("Taha Sadikot"),
+      },
+      {
+        name: "Ikshit Talera",
+        role: "TECH FOUNDER",
+        bio: "Backbone of Team 01 output. Co-owns Upvote and Guava with strong product, support, and SEO ownership.",
+        linkedin: liSearch("Ikshit Talera"),
+      },
+      {
+        name: "Ashish Sharma",
+        role: "TECH FOUNDER",
+        bio: "High-focus builder who ships clean and adds strong technical depth.",
+        linkedin: liSearch("Ashish Sharma"),
+      },
+      {
+        name: "Hitender Sharma",
+        role: "GROWTH FOUNDER",
+        bio: "Growth owner on Upvote with deep SEO-driven distribution work.",
+        linkedin: liSearch("Hitender Sharma"),
+      },
+      {
+        name: "Ranim Guani",
+        role: "GROWTH FOUNDER",
+        bio: "Former agency founder from UAE, now co-building Guava with strong founder energy.",
+        linkedin: liSearch("Ranim Guani"),
+      },
+    ],
   },
   {
     id: "02",
-    name: "Outcome-Based Education",
-    members: "Aryan, Disha",
-    focus: "Replacing passive learning with risk reduction and guaranteed results for career pivots and income-linked skills.",
-    color: "bg-emerald-100",
-    tag: "EDTECH_LAB"
+    members: [
+      {
+        name: "Aryan Sagavekar",
+        role: "TECH FOUNDER",
+        bio: "Hardworking builder with a knack for extracting strong product ideas from sharp problem statements.",
+        linkedin: liSearch("Aryan Sagavekar"),
+      },
+      {
+        name: "Disha Gupta",
+        role: "TECH FOUNDER",
+        bio: "Punctual, fast, and ownership-first. If it's in Disha's hands, it gets done.",
+        linkedin: liSearch("Disha Gupta"),
+      },
+    ],
   },
   {
     id: "03",
-    name: "Relationships & Emotional Tech",
-    members: "Garv, Hitanshi, Tarasha",
-    focus: "Creating emotional support systems providing guidance for self-awareness, conflict resolution, and social confidence.",
-    color: "bg-purple-100",
-    tag: "HUMAN_STACK"
+    members: [
+      {
+        name: "Garv Thakral",
+        role: "TECH FOUNDER",
+        bio: "Turns deep tech obsession into product ideas in emotional wellness categories.",
+        linkedin: liSearch("Garv Thakral"),
+      },
+      {
+        name: "Janet Yee",
+        role: "GROWTH FOUNDER",
+        bio: "US-based founder with strong marketing/media instincts leading Team 03 growth direction.",
+        linkedin: liSearch("Janet Yee"),
+      },
+    ],
   },
   {
     id: "04",
-    name: "Pet Economy & Wellness",
-    members: "Komal, Vinayak, Surya",
-    focus: "Treating pets as family members through AI-driven personalized nutrition and health monitoring.",
-    color: "bg-orange-100",
-    tag: "PET_TECH"
-  }
+    members: [
+      {
+        name: "Komal Siddharth",
+        role: "TECH FOUNDER",
+        bio: "High-velocity builder and natural team lead for Team 04.",
+        linkedin: liSearch("Komal Siddharth"),
+      },
+      {
+        name: "Tirth Patel",
+        role: "TECH FOUNDER",
+        bio: "Fast-learning builder, active contributor, and strong team player.",
+        linkedin: liSearch("Tirth Patel"),
+      },
+      {
+        name: "Anurag Prajapati",
+        role: "TECH FOUNDER",
+        bio: "Solid technical foundations with a clear builder mindset.",
+        linkedin: liSearch("Anurag Prajapati"),
+      },
+      {
+        name: "Akash Bauri",
+        role: "TECH FOUNDER",
+        bio: "Punctual AI founding engineer with high-variance product thinking.",
+        linkedin: liSearch("Akash Bauri"),
+      },
+      {
+        name: "Surya Pranav",
+        role: "TECH FOUNDER",
+        bio: "Build-in-public practitioner with strong execution habits.",
+        linkedin: liSearch("Surya Pranav"),
+      },
+      {
+        name: "Aisha Abahi",
+        role: "GROWTH FOUNDER",
+        bio: "Growth partner on Editflow, owning branding and Build in Public presence on X.",
+        linkedin: liSearch("Aisha Abahi"),
+      },
+    ],
+  },
 ];
 
+const memberCardTilt = ["rotate-1", "-rotate-1", "rotate-2", "-rotate-2", "rotate-1", "-rotate-1"];
+
 export const Teams = () => {
+  const content = siteContent.teams;
+
   return (
     <div className="pt-24 pb-32 bg-yellow-400">
-      <section className="py-32 md:py-56 px-6 max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-32 md:mb-48 gap-16">
-          <div className="max-w-4xl">
-            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-[8rem] font-display uppercase italic font-black leading-[0.9] md:leading-[0.8] mb-10 tracking-tighter">The Teams.</h2>
-            <p className="text-base md:text-xl font-bold leading-tight max-w-2xl mt-10 opacity-60">
-              5 elite units. 5 distinct missions.
-              <span className="text-black underline decoration-2 underline-offset-4"> One common goal: High-velocity production.</span>
-            </p>
-          </div>
-          <div className="bg-black text-white p-8 md:p-10 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,0.2)] self-start md:self-auto border-4 border-black">
-            <p className="font-mono text-[8px] font-black uppercase tracking-widest mb-2 opacity-40">Capacity</p>
-            <p className="text-xl md:text-3xl font-display uppercase italic font-black">Full Strength</p>
+      <section className="py-24 px-6 max-w-7xl mx-auto">
+        <div className="mb-20">
+          <p className="font-mono text-[10px] font-black uppercase tracking-widest opacity-50">{content.eyebrow}</p>
+          <h1 className="text-5xl md:text-8xl font-display uppercase italic font-black tracking-tighter mt-4">{content.title}</h1>
+          <p className="text-2xl md:text-4xl font-black mt-6">{content.subtitle}</p>
+          <p className="text-base md:text-xl font-bold mt-4 opacity-75 max-w-4xl">{content.description}</p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+            {[
+              ["5", "TEAMS ACTIVE"],
+              ["14", "FOUNDERS"],
+              ["20+", "PRODUCTS SHIPPED"],
+              ["OPEN", "FOUNDING SEATS"],
+            ].map(([v, l]) => (
+              <div key={l} className="bg-white border-4 border-black rounded-xl p-4 text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <div className="text-2xl md:text-4xl font-display font-black italic uppercase">{v}</div>
+                <div className="font-mono text-[10px] font-black uppercase tracking-widest opacity-60 mt-1">{l}</div>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 mb-56">
-          {teams.map((team, i) => (
-            <motion.div
-              key={team.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -10, rotate: i % 2 === 0 ? 1 : -1 }}
-              className="sticker-card p-6 md:p-10 lg:p-14 flex flex-col h-full relative group bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
-            >
-              <div className="flex items-center justify-between mb-12">
-                <div className="w-16 h-16 bg-yellow-400 border-4 border-black rounded-xl flex items-center justify-center font-display text-3xl font-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                  {team.id}
-                </div>
-                <div className="bg-black text-white px-5 py-2 rounded-full font-mono text-[8px] font-black uppercase tracking-widest shadow-lg">
-                  {team.tag}
-                </div>
+        <div className="space-y-14 mb-24">
+          {teams.map((team) => (
+            <section key={team.id} className="bg-white border-4 border-black rounded-3xl p-6 md:p-10 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+              <div className="absolute right-4 top-2 text-[5rem] md:text-[7rem] font-display font-black italic opacity-10 select-none">{team.id}</div>
+              <div className="flex items-center gap-4 mb-8">
+                <h2 className="text-3xl md:text-5xl font-display font-black italic uppercase">TEAM {team.id}</h2>
+                <span className="bg-black text-white px-4 py-2 rounded-full font-mono text-[10px] uppercase font-black tracking-widest">● ACTIVE</span>
               </div>
 
-              <h3 className="text-2xl md:text-4xl font-display uppercase italic font-black mb-10 leading-[0.9] md:leading-[0.8] tracking-tighter">{team.name}</h3>
-
-              <div className="space-y-10 flex-1">
-                <div>
-                  <p className="font-mono text-[8px] font-black uppercase tracking-widest opacity-40 mb-4">Personnel</p>
-                  <p className="text-xl md:text-2xl font-black">{team.members}</p>
-                </div>
-                <div>
-                  <p className="font-mono text-[8px] font-black uppercase tracking-widest opacity-40 mb-4">Mission Focus</p>
-                  <p className="text-base md:text-lg font-bold leading-tight opacity-60">{team.focus}</p>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {team.members.map((member, idx) => (
+                  <article key={member.name} className={`border-4 border-black rounded-2xl p-5 bg-yellow-50 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${memberCardTilt[idx % memberCardTilt.length]}`}>
+                    <div className="flex items-start gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-lg bg-black text-white flex items-center justify-center font-black text-lg border-2 border-black">
+                        {member.name.split(" ").map((p) => p[0]).join("").slice(0, 2)}
+                      </div>
+                      <div>
+                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-xl font-black underline decoration-2 underline-offset-4">
+                          {member.name}
+                        </a>
+                        <p className="font-mono text-[10px] font-black uppercase tracking-widest opacity-60 mt-1">{member.role}</p>
+                      </div>
+                    </div>
+                    <p className="text-sm font-bold leading-tight opacity-80">{member.bio}</p>
+                  </article>
+                ))}
               </div>
-
-              <div className="mt-12 pt-8 border-t-4 border-black flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-emerald-400 rounded-full border-2 border-black animate-pulse" />
-                  <span className="font-mono text-[8px] font-black uppercase tracking-widest opacity-40">DEPLOYED_ACTIVE</span>
-                </div>
-              </div>
-            </motion.div>
+            </section>
           ))}
-
-          {/* Join Team Card */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -10 }}
-            className="sticker-card bg-black text-white p-6 md:p-10 lg:p-14 flex flex-col items-center justify-center text-center h-full min-h-[450px] border-4 border-black group shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]"
-          >
-            <div className="w-24 h-24 bg-yellow-400 text-black rounded-full flex items-center justify-center mb-10 group-hover:rotate-90 transition-transform shadow-[6px_6px_0px_0px_rgba(255,255,255,0.1)] border-4 border-black">
-              <Plus size={48} strokeWidth={4} />
-            </div>
-            <h3 className="text-2xl sm:text-3xl md:text-5xl font-display uppercase italic font-black mb-8 tracking-tighter">JOIN AS A FOUNDER?</h3>
-            <p className="text-base md:text-xl font-black uppercase tracking-widest opacity-40 max-w-[250px] mb-10">We are looking for owners, not employees.</p>
-
-            <div className="flex flex-col gap-4 w-full max-w-xs">
-              {[
-                { name: "Founding AI Engineer", link: "https://tally.so/r/dW6V0o" },
-                { name: "Founding Content Creator", link: "https://tally.so/r/81Kyoo" },
-                { name: "Founding Build in Public Dev", link: "https://tally.so/r/RG0aGv" }
-              ].map((role) => (
-                <a
-                  key={role.name}
-                  href={role.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white text-black px-6 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-yellow-400 transition-all border-4 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]"
-                >
-                  {role.name}
-                </a>
-              ))}
-            </div>
-          </motion.div>
         </div>
 
         <Manifesto />
@@ -147,4 +213,3 @@ export const Teams = () => {
     </div>
   );
 };
-

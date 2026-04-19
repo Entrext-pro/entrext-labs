@@ -1,57 +1,45 @@
-import { Product } from '@/types';
+﻿import { Product } from "@/types";
 
-export const allProductsByMonth: Record<string, Product[]> = {
-  "JANUARY": [
-    { name: "Secretroom", desc: "Ephemeral anonymous chat service. No signups, no history, just vibes.", url: "secretroom.entrext.in", team: "04", builder: "Team 4: Komal, Vinayak, Surya", niche: "Social", nicheId: "relationships-social-emotional" },
-    { name: "ReTone", desc: "AI-powered text tone optimizer for perfect message context.", url: "retone.entrext.in", team: "03", builder: "Team 3: Garv, Hitanshi, Tarasha", niche: "AI Productivity", nicheId: "ai-workflows-automations" },
-    { name: "Unpuzzle", desc: "Physics-based gymnasium for the mind. Stress-test your spatial reasoning.", url: "unpuzzle.entrext.in", team: "02", builder: "Team 2: Aryan, Disha", niche: "Gaming/EdTech", nicheId: "outcome-based-education" },
-    { name: "PayShot", desc: "Turn chat screenshots into professional invoices automatically.", url: "payshot.entrext.in", team: "03", builder: "Team 3: Garv, Hitanshi, Tarasha", niche: "FinTech", nicheId: "founder-startup-business" },
-    { name: "EditFlow", desc: "Weekly planner for editing teams. Visibility for every frame.", url: "editflow.entrext.in", team: "04", builder: "Team 4: Komal, Vinayak, Surya", niche: "SaaS", nicheId: "ai-workflows-automations" },
-    { name: "Soho Space", desc: "Marketplace connecting visionary founders with elite growth partners.", url: "sohospace.entrext.in", team: "02", builder: "Team 2: Aryan, Disha", niche: "Marketplace", nicheId: "founder-startup-business" },
-    { name: "TouchGrass", desc: "Daily outdoor habit app. Stay active, stay accountable, go outside.", url: "touchgrass.entrext.com", team: "00", builder: "Team 0: Mohit & Manthan", niche: "Health/Wellness", nicheId: "pet-economy-wellness" },
-    { name: "Introbuddy", desc: "AI-powered hiring platform that automates first-round interviews.", url: "introbuddy.entrext.com", team: "01", builder: "Team 1: Taha, Ikshit", niche: "HRTech", nicheId: "founder-startup-business" },
-    { name: "BabySimple", desc: "AI text simplification tool for jargon-filled corporate language.", url: "babysimple.entrext.in", team: "04", builder: "Team 4: Komal, Vinayak, Surya", niche: "AI Productivity", nicheId: "ai-workflows-automations" },
-    { name: "Upvote", desc: "Simple feedback and voting tool for business owners.", url: "upvote.entrext.com", team: "01", builder: "Team 1: Taha, Ikshit", niche: "SaaS", nicheId: "ai-workflows-automations" },
-    { name: "Reword", desc: "AI-powered content repurposing tool for creators and marketers.", url: "reword.entrext.com", team: "00", builder: "Team 0: Mohit & Manthan", niche: "Creator Economy", nicheId: "founder-startup-business" },
-    { name: "Mistrategist", desc: "Turn-based stealth game. Plan, execute, and infiltrate.", url: "mistrategist.entrext.com", team: "02", builder: "Team 2: Aryan, Disha", niche: "Gaming", nicheId: "outcome-based-education" },
-    { name: "ListenDrift", desc: "Speech analysis and attention-tracking for presenters.", url: "listendrift.entrext.com", team: "05", builder: "Team 5 Builders", niche: "Analytics", nicheId: "ai-workflows-automations" },
-    { name: "Spy", desc: "Market Intelligence platform for the dropshipping community.", url: "pickspy.entrext.com", team: "02", builder: "Team 2: Aryan, Disha", niche: "E-commerce", nicheId: "founder-startup-business" }
-  ],
-  "FEBRUARY": [
-    { name: "PawNote", desc: "Never forget your vet's instructions. Prepare and track pet care.", url: "pawnote.entrext.com", team: "04", builder: "Team 4: Komal, Vinayak, Surya", niche: "PetTech", nicheId: "pet-economy-wellness" },
-    { name: "Vouched", desc: "Collect and display testimonials everywhere with zero friction.", url: "vouched.entrext.com", team: "03", builder: "Team 3: Garv, Hitanshi, Tarasha", niche: "Marketing", nicheId: "founder-startup-business" },
-    { name: "Chronos", desc: "High-velocity time management for production teams.", url: "chronos.entrext.com", team: "02", builder: "Team 2: Aryan, Disha", niche: "Productivity", nicheId: "ai-workflows-automations" },
-    { name: "Nurturely", desc: "Automated customer nurture loops for small businesses.", url: "nurturely.entrext.com", team: "02", builder: "Team 2: Aryan, Disha", niche: "SaaS", nicheId: "ai-workflows-automations" },
-    { name: "FutureFit", desc: "FutureFit is an AI engine that predicts your future career paths from your habits and goals.", url: "futurefit.entrext.com", team: "02", builder: "Team 2: Aryan, Disha", niche: "Career Planning", nicheId: "outcome-based-education" },
-    { name: "PetVault", desc: "Secure digital storage for all your pet's medical records.", url: "petvault.entrext.com", team: "04", builder: "Team 4: Komal, Vinayak, Surya", niche: "PetTech", nicheId: "pet-economy-wellness" },
-    { name: "BuildInPublic", desc: "The ultimate OS for building and sharing in public.", url: "buildinpublic.entrext.com", team: "00", builder: "Team 0: Mohit & Manthan", niche: "Creator Economy", nicheId: "founder-startup-business" },
-    { name: "SoloPilot", desc: "AI co-pilot for solo entrepreneurs managing multiple projects.", url: "solopilot.entrext.com", team: "04", builder: "Team 4: Komal, Vinayak, Surya", niche: "AI SaaS", nicheId: "ai-workflows-automations" },
-    { name: "InviteFlow", desc: "Seamless event invitation and guest management system.", url: "inviteflow.entrext.com", team: "01", builder: "Team 1: Taha, Ikshit", niche: "EventTech", nicheId: "founder-startup-business" },
-    { name: "SubSafe", desc: "Track and manage all your recurring subscriptions in one place.", url: "subsafe.entrext.com", team: "01", builder: "Team 1: Taha, Ikshit", niche: "FinTech", nicheId: "founder-startup-business" }
-  ],
-  "MARCH": [
-    { name: "Fingenius", desc: "AI Wealth Mentor that automatically detects hidden subscriptions, optimizes your taxes, and builds your custom early retirement (FIRE) roadmap.", url: "fingenius.entrext.com", team: "04", builder: "Team 4: Komal, Tirth, Anurag", niche: "FinTech", nicheId: "founder-startup-business" },
-    { name: "Ctrlsense", desc: "Smarter way to search your files with the keywords inside them.", url: "ctrlsense.entrext.com", team: "04", builder: "Team 4: Komal, Tirth, Anurag", niche: "AI Productivity", nicheId: "ai-workflows-automations" },
-    { name: "AquaOS", desc: "Aquatic animals management tool that tracks your water parameters, identifies diseases, checks fish compatibility, and tells you exactly what to do before your tank crashes.", url: "aquaos.entrext.com", team: "04", builder: "Team 4: Komal", niche: "PetTech", nicheId: "pet-economy-wellness" },
-    { name: "IntroBuddy", desc: "AI-powered hiring platform that automates everything from resume screening to final selection. Helps you find and hire the right talent faster using intelligent, data-driven decisions.", url: "introbuddy.entrext.com", team: "01", builder: "Team 1: Taha", niche: "HRTech", nicheId: "founder-startup-business" },
-    { name: "Curio Cafe", desc: "A digital café for intellectual curiosity. A space for live, small-group video discussions where knowledge is shared through dialogue.", url: "curiocafe.entrext.com", team: "02", builder: "Team 2: Disha", niche: "EdTech", nicheId: "outcome-based-education" },
-    { name: "OpinVox", desc: "A structured real-time arena for intellectual combat/debates. Rules-based debating modeled after parliamentary standards that measures logic and opinion shift.", url: "opinvox.entrext.com", team: "02", builder: "Team 2: Disha", niche: "Debate Platform", nicheId: "ai-workflows-automations" },
-    { name: "BranchScope", desc: "A career reality simulation platform and decision engine that works across all careers to help you make informed, data-backed decisions.", url: "branchscope.entrext.com", team: "02", builder: "Team 2: Disha, Akash, Siddheshwar", niche: "Career Planning", nicheId: "outcome-based-education" },
-    { name: "Arctic", desc: "A platform specifically made for managing articles and blocks in your own database for fast and easy access without any 3rd party in between.", url: "arctic.entrext.com", team: "01", builder: "Team 1: Ikshit", niche: "AI Productivity", nicheId: "ai-workflows-automations" }
-  ],
-};
-
-export const months = [
-  "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
-  "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
+export const allProducts: Product[] = [
+  { name: "Payshot", desc: "Convert chat screenshots into invoices.", url: "payshot.entrext.in", team: "01", builder: "Team 01", niche: "Prosumer Systems", nicheId: "creator-prosumer-stack", marketLayer: "HYBRID_PROSUMER", cluster: "Creator, Solo-Operator & Prosumer Tools", canonicalId: "payshot" },
+  { name: "Strint", desc: "Work with strangers on real projects.", url: "strint.entrext.com", team: "00", builder: "Team 00", niche: "Prosumer Systems", nicheId: "creator-prosumer-stack", marketLayer: "HYBRID_PROSUMER", cluster: "Creator, Solo-Operator & Prosumer Tools", canonicalId: "strint" },
+  { name: "SoloPilot", desc: "Personal OS for solo founders.", url: "solopilot.entrext.com", team: "04", builder: "Team 04", niche: "Prosumer Systems", nicheId: "creator-prosumer-stack", marketLayer: "HYBRID_PROSUMER", cluster: "Creator, Solo-Operator & Prosumer Tools", canonicalId: "solopilot" },
+  { name: "LinkInOne", desc: "AI-powered link-in-bio identity.", url: "linkinone.entrext.com", team: "00", builder: "Team 00", niche: "Prosumer Systems", nicheId: "creator-prosumer-stack", marketLayer: "HYBRID_PROSUMER", cluster: "Creator, Solo-Operator & Prosumer Tools", canonicalId: "linkinone" },
+  { name: "Fingenius", desc: "AI wealth mentor and personal financial planning.", url: "fingenius.entrext.com", team: "04", builder: "Team 04", niche: "Personal Optimization", nicheId: "financial-intelligence-ai-mentor", marketLayer: "B2C", cluster: "Finance & Personal Growth", canonicalId: "fingenius" },
+  { name: "Pawnote", desc: "Pet health notes and tracking.", url: "pawnote.entrext.com", team: "04", builder: "Team 04", niche: "Pet Care Platforms", nicheId: "pet-economy-wellness", marketLayer: "B2C", cluster: "Pet & Life Systems", canonicalId: "pawnote" },
+  { name: "AquaOS", desc: "Smart aquatic environment monitoring.", url: "aquaos.entrext.com", team: "04", builder: "Team 04", niche: "Pet Care Platforms", nicheId: "pet-economy-wellness", marketLayer: "B2C", cluster: "Pet & Life Systems", canonicalId: "aquaos" },
+  { name: "PetVault", desc: "Pet life and health timeline.", url: "petvault.entrext.com", team: "04", builder: "Team 04", niche: "Pet Care Platforms", nicheId: "pet-economy-wellness", marketLayer: "B2C", cluster: "Pet & Life Systems", canonicalId: "petvault" },
+  { name: "TouchGrass", desc: "Outdoor habit tracking and accountability.", url: "touchgrass.entrext.com", team: "00", builder: "Team 00", niche: "Thinking & Learning", nicheId: "outcome-based-education", marketLayer: "B2C", cluster: "Lifestyle & Habits", canonicalId: "touchgrass" },
+  { name: "CurioCafe", desc: "Small-group structured learning discussions.", url: "curiocafe.entrext.com", team: "02", builder: "Team 02", niche: "Thinking & Learning", nicheId: "outcome-based-education", marketLayer: "B2C", cluster: "Learning, Thinking & Decision-Making", canonicalId: "curiocafe" },
+  { name: "BranchScope", desc: "Career decision simulation tool.", url: "branchscope.entrext.com", team: "02", builder: "Team 02", niche: "Thinking & Learning", nicheId: "outcome-based-education", marketLayer: "B2C", cluster: "Learning, Thinking & Decision-Making", canonicalId: "branchscope" },
+  { name: "OpinVox", desc: "Structured debate platform.", url: "opinvox.entrext.com", team: "02", builder: "Team 02", niche: "Thinking & Learning", nicheId: "outcome-based-education", marketLayer: "B2C", cluster: "Learning, Thinking & Decision-Making", canonicalId: "opinvox" },
+  { name: "Secretroom", desc: "Anonymous, ephemeral chat.", url: "secretroom.entrext.in", team: "03", builder: "Team 03", niche: "Emotional Tech", nicheId: "relationships-social-emotional", marketLayer: "B2C", cluster: "Emotional & Social Tech", canonicalId: "secretroom" },
+  { name: "Tea", desc: "Log and understand relationships.", url: "tea.entrext.com", team: "03", builder: "Team 03", niche: "Emotional Tech", nicheId: "relationships-social-emotional", marketLayer: "B2C", cluster: "Emotional & Social Tech", canonicalId: "tea" },
+  { name: "Sessionly", desc: "Therapy tracking and reflection.", url: "sessionly.entrext.com", team: "03", builder: "Team 03", niche: "Emotional Tech", nicheId: "relationships-social-emotional", marketLayer: "B2C", cluster: "Emotional & Social Tech", canonicalId: "sessionly" },
+  { name: "Funvitation", desc: "Interactive invitation experiences.", url: "funvitation.entrext.com", team: "03", builder: "Team 03", niche: "Emotional Tech", nicheId: "relationships-social-emotional", marketLayer: "B2C", cluster: "Emotional & Social Tech", canonicalId: "funvitation" },
+  { name: "EnvDrop", desc: "End-to-end encrypted file sharing.", url: "envdrop.entrext.com", team: "01", builder: "Team 01", niche: "AI Operations", nicheId: "ai-workflows-automations", marketLayer: "B2B", cluster: "Infrastructure & Utilities", canonicalId: "envdrop" },
+  { name: "ListenDrift", desc: "Tracks audience attention in real-time.", url: "listendrift.entrext.com", team: "02", builder: "Team 02", niche: "Market Intelligence", nicheId: "market-intelligence-observability", marketLayer: "B2B", cluster: "Audience, Feedback & Market Intelligence", canonicalId: "listendrift" },
+  { name: "Pickspy", desc: "Market intelligence for dropshipping.", url: "pickspy.entrext.com", team: "02", builder: "Team 02", niche: "Market Intelligence", nicheId: "market-intelligence-observability", marketLayer: "B2B", cluster: "Audience, Feedback & Market Intelligence", canonicalId: "pickspy" },
+  { name: "Vouched", desc: "Embed testimonials and reviews.", url: "vouched.entrext.com", team: "03", builder: "Team 03", niche: "Market Intelligence", nicheId: "market-intelligence-observability", marketLayer: "B2B", cluster: "Audience, Feedback & Market Intelligence", canonicalId: "vouched" },
+  { name: "Introbuddy", desc: "Automated AI-driven interviews.", url: "introbuddy.entrext.com", team: "01", builder: "Team 01", niche: "Founder Infrastructure", nicheId: "founder-startup-business", marketLayer: "B2B", cluster: "Hiring, Talent & Work Systems", canonicalId: "introbuddy" },
+  { name: "Soho Space", desc: "Proof-of-work hiring platform.", url: "sohospace.entrext.in", team: "00", builder: "Team 00", niche: "Founder Infrastructure", nicheId: "founder-startup-business", marketLayer: "B2B", cluster: "Hiring, Talent & Work Systems", canonicalId: "soho-space" },
+  { name: "Introbuddy 2.0", desc: "Enhanced hiring automation (v2).", url: "introbuddy.entrext.com", team: "01", builder: "Team 01", niche: "Founder Infrastructure", nicheId: "founder-startup-business", marketLayer: "B2B", cluster: "Hiring, Talent & Work Systems", canonicalId: "introbuddy-v2" },
+  { name: "Retone", desc: "AI tone optimization for text.", url: "retone.entrext.in", team: "01", builder: "Team 01", niche: "AI Operations", nicheId: "ai-workflows-automations", marketLayer: "B2B", cluster: "AI Workflows & Automation", canonicalId: "retone" },
+  { name: "Subsafe", desc: "Pre-checks posts for subreddit compliance.", url: "subsafe.entrext.com", team: "01", builder: "Team 01", niche: "AI Operations", nicheId: "ai-workflows-automations", marketLayer: "B2B", cluster: "AI Workflows & Automation", canonicalId: "subsafe" },
+  { name: "BabySimple", desc: "Simplifies complex language to plain English.", url: "babysimple.entrext.in", team: "01", builder: "Team 01", niche: "AI Operations", nicheId: "ai-workflows-automations", marketLayer: "B2B", cluster: "AI Workflows & Automation", canonicalId: "babysimple" },
+  { name: "Arctic", desc: "Blog & content management platform.", url: "arctic.entrext.com", team: "01", builder: "Team 01", niche: "AI Operations", nicheId: "ai-workflows-automations", marketLayer: "B2B", cluster: "AI Workflows & Automation", canonicalId: "arctic" },
+  { name: "Reword", desc: "Repurposes content across formats.", url: "reword.entrext.com", team: "01", builder: "Team 01", niche: "AI Operations", nicheId: "ai-workflows-automations", marketLayer: "B2B", cluster: "AI Workflows & Automation", canonicalId: "reword" },
+  { name: "CtrlSense", desc: "Deep semantic file search.", url: "ctrlsense.entrext.com", team: "01", builder: "Team 01", niche: "AI Operations", nicheId: "ai-workflows-automations", marketLayer: "B2B", cluster: "AI Workflows & Automation", canonicalId: "ctrlsense" },
+  { name: "InviteFlow", desc: "Programmatic personalized invites at scale.", url: "inviteflow.entrext.com", team: "01", builder: "Team 01", niche: "AI Operations", nicheId: "ai-workflows-automations", marketLayer: "B2B", cluster: "AI Workflows & Automation", canonicalId: "inviteflow" },
+  { name: "AI Markdown Plugin", desc: "Converts AI chats to structured outputs (WIP).", url: "aimarkdown.entrext.com", team: "01", builder: "Team 01", niche: "AI Operations", nicheId: "ai-workflows-automations", marketLayer: "B2B", cluster: "AI Workflows & Automation", canonicalId: "ai-markdown-plugin" },
+  { name: "BuildInPublic", desc: "Turns daily work into shareable content.", url: "buildinpublic.entrext.com", team: "00", builder: "Team 00", niche: "Founder Infrastructure", nicheId: "founder-startup-business", marketLayer: "B2B", cluster: "Founder & Startup Operations", canonicalId: "buildinpublic" },
+  { name: "SkillVibe", desc: "Career verification with trust scores.", url: "skillvibe.entrext.com", team: "00", builder: "Team 00", niche: "Founder Infrastructure", nicheId: "founder-startup-business", marketLayer: "B2B", cluster: "Founder & Startup Operations", canonicalId: "skillvibe" },
+  { name: "Prelaunchpad", desc: "Waitlists, onboarding & early hype automation.", url: "prelaunchpad.entrext.com", team: "00", builder: "Team 00", niche: "Founder Infrastructure", nicheId: "founder-startup-business", marketLayer: "B2B", cluster: "Founder & Startup Operations", canonicalId: "prelaunchpad" },
+  { name: "Upvote", desc: "Collect and prioritize product feedback.", url: "upvote.entrext.com", team: "01", builder: "Team 01", niche: "Founder Infrastructure", nicheId: "founder-startup-business", marketLayer: "B2B", cluster: "Founder & Startup Operations", canonicalId: "upvote" },
+  { name: "StarterScope", desc: "Business idea discovery via real-time data.", url: "starterscope.entrext.com", team: "00", builder: "Team 00", niche: "Founder Infrastructure", nicheId: "founder-startup-business", marketLayer: "B2B", cluster: "Founder & Startup Operations", canonicalId: "starterscope" }
 ];
 
-// Helper function to get all products flattened
-export const getAllProducts = (): Product[] => {
-  return Object.values(allProductsByMonth).flat();
-};
+export const getAllProducts = (): Product[] => allProducts;
 
-// Helper function to get products by niche ID
-export const getProductsByNicheId = (nicheId: string): Product[] => {
-  return getAllProducts().filter(product => product.nicheId === nicheId);
-};
+export const getProductsByNicheId = (nicheId: string): Product[] =>
+  allProducts.filter((product) => product.nicheId === nicheId);

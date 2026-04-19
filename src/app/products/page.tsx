@@ -1,11 +1,13 @@
-import { Products as ProductsPage } from "@/views/Products";
+﻿import { Products as ProductsPage } from "@/views/Products";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Product Ecosystem",
-    description: "Explore the Entrext Labs micro-SaaS ecosystem. A monthly showcase of our latest high-velocity software deployments.",
+  title: "Product Portfolio",
+  description:
+    "Explore Entrext products across B2B, B2C, and Hybrid/Prosumer layers with cluster-level architecture.",
 };
 
 export default function Products() {
-    return <ProductsPage />;
+  return <ProductsPage />;
 }
+
