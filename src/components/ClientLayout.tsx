@@ -21,7 +21,7 @@ const BackToTop = () => {
 
     useEffect(() => {
         const toggleVisibility = () => {
-            if (window.pageYOffset > 500) {
+            if (window.scrollY > 500) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);
@@ -39,9 +39,9 @@ const BackToTop = () => {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.5, y: 50 }}
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    className="fixed bottom-8 right-8 z-[60] w-16 h-16 bg-yellow-400 border-4 border-black rounded-full flex items-center justify-center shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all group"
+                    className="fixed bottom-8 right-8 z-[60] w-14 h-14 bg-electric-cyan text-black rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,245,255,0.3)] hover:scale-110 transition-all group border border-white/20"
                 >
-                    <Rocket size={28} className="group-hover:-translate-y-1 transition-transform" />
+                    <Rocket size={24} className="group-hover:-translate-y-1 transition-transform" />
                 </motion.button>
             )}
         </AnimatePresence>
@@ -50,7 +50,6 @@ const BackToTop = () => {
 
 export const ClientLayout = ({ children }: { children: React.ReactNode }) => {
     const pathname = usePathname();
-    const isHome = pathname === '/';
     const { scrollYProgress } = useScroll();
     const [legalType, setLegalType] = useState<'privacy' | 'terms' | null>(null);
 
@@ -61,16 +60,23 @@ export const ClientLayout = ({ children }: { children: React.ReactNode }) => {
     });
 
     return (
-        <div className="min-h-screen bg-yellow-400 text-black font-bold selection:bg-black selection:text-yellow-400">
+        <div className="min-h-screen bg-black text-white selection:bg-electric-cyan selection:text-black">
             <ScrollToTop />
-            <div className="grainy-overlay" />
-            <div className="fixed top-0 left-0 w-full h-2 bg-black z-[100]" />
+            <div className="grainy-overlay opacity-30" />
+            
+            {/* Scroll Progress Bar */}
+            <motion.div 
+                className="fixed top-0 left-0 right-0 h-1 bg-electric-cyan z-[100] origin-left"
+                style={{ scaleX }}
+            />
+
             <Navbar />
             <main>
                 {children}
             </main>
             <Footer />
             <BackToTop />
+            
             <AnimatePresence>
                 {legalType && (
                     <LegalModal type={legalType} onClose={() => setLegalType(null)} />

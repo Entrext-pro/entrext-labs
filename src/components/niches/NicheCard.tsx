@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import { motion } from "motion/react";
@@ -21,29 +21,38 @@ export const NicheCard = ({ niche, index, isLive = true }: NicheCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.05 }}
-      whileHover={{ y: -8, rotate: index % 2 === 0 ? 1 : -1 }}
-      className={`sticker-card p-8 flex flex-col h-full min-h-[380px] bg-white border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] ${!isLive ? "opacity-70" : ""}`}
+      whileHover={{ y: -8 }}
+      className={`lab-card p-8 flex flex-col h-full min-h-[380px] border-white/10 ${!isLive ? "opacity-50" : ""}`}
     >
-      <div className="flex items-center justify-between mb-6">
-        <div className="w-14 h-14 bg-yellow-400 border-4 border-black rounded-xl flex items-center justify-center font-display text-2xl font-black">
+      <div className="flex items-center justify-between mb-8">
+        <div className="w-14 h-14 bg-electric-cyan/10 border border-electric-cyan/20 rounded-xl flex items-center justify-center font-display text-2xl font-black text-electric-cyan">
           {String(index + 1).padStart(2, "0")}
         </div>
-        <div className="bg-black text-white px-3 py-1 rounded-full font-mono text-[10px] font-black uppercase">
+        <div className="bg-white/5 text-white/60 px-3 py-1 rounded-full border border-white/10 font-mono text-[10px] font-black uppercase">
           {niche.marketLayer}
         </div>
       </div>
 
-      <h3 className="text-2xl md:text-3xl font-display uppercase italic font-black leading-tight mb-3">{niche.title}</h3>
-      <p className="font-mono text-[10px] uppercase font-black opacity-50">{niche.cluster}</p>
-      <p className="text-sm md:text-base font-bold leading-tight mt-4 flex-1 opacity-70">{niche.desc}</p>
+      <h3 className="text-2xl md:text-3xl font-display uppercase font-black leading-tight mb-3 text-white">
+        {niche.title}
+      </h3>
+      <p className="font-mono text-[10px] uppercase font-black text-electric-cyan/40 tracking-widest">
+        {niche.cluster}
+      </p>
+      <p className="text-sm md:text-base font-bold leading-relaxed mt-6 flex-1 text-muted">
+        {niche.desc}
+      </p>
 
       <button
         onClick={() => router.push(`/niches/${niche.id}`)}
-        className="btn-primary mt-6 w-full flex items-center justify-center gap-3 text-base py-3"
+        className="btn-primary mt-10 w-full group"
       >
-        View Products <ArrowUpRight size={20} strokeWidth={3} />
+        <span className="flex items-center justify-center gap-3">
+          View Products <ArrowUpRight size={20} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </span>
       </button>
     </motion.article>
   );
 };
+
 

@@ -1,45 +1,58 @@
-﻿import React from "react";
+import React from "react";
 import { siteContent } from "@/data/siteContent";
-
-const painPoints = [
-  {
-    id: "01",
-    title: "Tech founder with no distribution",
-    desc: "You can build a great product and still launch into silence without a growth partner.",
-  },
-  {
-    id: "02",
-    title: "Growth founder with no product",
-    desc: "You can see demand clearly, but ideas die when there is no technical co-founder to build fast.",
-  },
-  {
-    id: "03",
-    title: "Both founders with no direction",
-    desc: "Without a mentor who knows your niche, every decision turns into expensive guesswork.",
-  },
-];
+import { XCircle, ArrowDown } from "lucide-react";
 
 export const ProblemStatement = () => {
   const { problem } = siteContent.home;
 
   return (
-    <section className="py-24 md:py-36 px-6 bg-black text-white border-t-8 border-black">
+    <section className="py-24 md:py-36 px-6 bg-obsidian text-white relative">
       <div className="max-w-7xl mx-auto">
-        <p className="font-mono text-[10px] font-black uppercase tracking-widest text-yellow-400">{problem.eyebrow}</p>
-        <h2 className="mt-4 text-4xl md:text-7xl font-display uppercase italic font-black leading-tight">{problem.title}</h2>
-        <p className="mt-4 text-base md:text-xl font-bold opacity-80">{problem.subtitle}</p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div className="max-w-3xl">
+            <p className="font-mono text-xs font-black uppercase tracking-widest text-red-500 mb-4">
+              {problem.eyebrow}
+            </p>
+            <h2 className="text-4xl md:text-7xl font-display uppercase font-black tracking-tighter">
+              {problem.title}
+            </h2>
+            <p className="mt-6 text-xl md:text-2xl font-bold text-muted">
+              {problem.subtitle}
+            </p>
+          </div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-          {painPoints.map((point) => (
-            <div key={point.id} className="border-4 border-white/20 rounded-2xl p-6 bg-white/5">
-              <p className="font-mono text-xs font-black uppercase text-yellow-400">{point.id}</p>
-              <h3 className="mt-3 text-2xl font-display uppercase italic font-black">{point.title}</h3>
-              <p className="mt-4 text-sm font-bold opacity-80 leading-tight">{point.desc}</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          {problem.items.map((item, idx) => (
+            <div key={idx} className="p-8 rounded-2xl border border-white/5 bg-white/[0.02] flex flex-col items-start group">
+              <div className="flex items-center gap-3 text-red-500 mb-6">
+                <XCircle size={24} />
+                <span className="font-mono text-sm font-black uppercase tracking-widest">→</span>
+              </div>
+              <h3 className="text-2xl font-display uppercase font-black tracking-tight text-white mb-4 group-hover:text-red-500 transition-colors">
+                {item.title}
+              </h3>
+              <p className="text-muted leading-relaxed">
+                {item.desc}
+              </p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-20 pt-12 border-t border-white/10 text-center">
+          <div className="inline-flex items-center gap-4 text-electric-cyan mb-8 animate-float">
+             <ArrowDown size={32} />
+          </div>
+          <p className="text-2xl md:text-4xl font-display uppercase font-black tracking-tighter max-w-4xl mx-auto">
+            {problem.closing}
+          </p>
+          <p className="mt-8 font-mono text-xs tracking-[0.5em] text-white/30 uppercase">
+            {problem.signature}
+          </p>
         </div>
       </div>
     </section>
   );
 };
+
 

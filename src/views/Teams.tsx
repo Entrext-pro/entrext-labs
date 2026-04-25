@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import { Manifesto } from "../components/teams/Manifesto";
@@ -154,53 +154,74 @@ export const Teams = () => {
   const content = siteContent.teams;
 
   return (
-    <div className="pt-24 pb-32 bg-yellow-400">
+    <div className="pt-24 pb-32 bg-[#0A0A0B]">
       <section className="py-24 px-6 max-w-7xl mx-auto">
-        <div className="mb-20">
-          <p className="font-mono text-[10px] font-black uppercase tracking-widest opacity-50">{content.eyebrow}</p>
-          <h1 className="text-5xl md:text-8xl font-display uppercase italic font-black tracking-tighter mt-4">{content.title}</h1>
-          <p className="text-2xl md:text-4xl font-black mt-6">{content.subtitle}</p>
-          <p className="text-base md:text-xl font-bold mt-4 opacity-75 max-w-4xl">{content.description}</p>
+        <div className="mb-24">
+          <p className="font-mono text-xs font-black uppercase tracking-[0.4em] text-electric-cyan mb-4">
+            {content.eyebrow}
+          </p>
+          <h1 className="text-5xl md:text-8xl font-display uppercase font-black tracking-tighter mt-4 text-white">
+            {content.title}
+          </h1>
+          <p className="text-2xl md:text-4xl font-black mt-8 text-white italic tracking-tight">
+            {content.subtitle}
+          </p>
+          <p className="text-xl font-bold mt-6 text-muted max-w-4xl leading-relaxed">
+            {content.description}
+          </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
             {[
               ["5", "TEAMS ACTIVE"],
               ["14", "FOUNDERS"],
               ["20+", "PRODUCTS SHIPPED"],
               ["OPEN", "FOUNDING SEATS"],
             ].map(([v, l]) => (
-              <div key={l} className="bg-white border-4 border-black rounded-xl p-4 text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <div className="text-2xl md:text-4xl font-display font-black italic uppercase">{v}</div>
-                <div className="font-mono text-[10px] font-black uppercase tracking-widest opacity-60 mt-1">{l}</div>
+              <div key={l} className="lab-card p-6 text-center border-white/5 bg-white/[0.02]">
+                <div className="text-3xl md:text-5xl font-display font-black text-electric-cyan tracking-tighter">{v}</div>
+                <div className="font-mono text-[10px] font-black uppercase tracking-widest text-muted mt-2">{l}</div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="space-y-14 mb-24">
+        <div className="space-y-24 mb-32">
           {teams.map((team) => (
-            <section key={team.id} className="bg-white border-4 border-black rounded-3xl p-6 md:p-10 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
-              <div className="absolute right-4 top-2 text-[5rem] md:text-[7rem] font-display font-black italic opacity-10 select-none">{team.id}</div>
-              <div className="flex items-center gap-4 mb-8">
-                <h2 className="text-3xl md:text-5xl font-display font-black italic uppercase">TEAM {team.id}</h2>
-                <span className="bg-black text-white px-4 py-2 rounded-full font-mono text-[10px] uppercase font-black tracking-widest">● ACTIVE</span>
+            <section key={team.id} className="relative group">
+              <div className="absolute -left-12 top-0 text-[10rem] font-display font-black text-white/[0.03] select-none pointer-events-none group-hover:text-electric-cyan/[0.05] transition-colors duration-700">
+                {team.id}
+              </div>
+              
+              <div className="flex items-center gap-6 mb-12 relative z-10">
+                <h2 className="text-3xl md:text-5xl font-display font-black uppercase tracking-tight text-white">
+                  TEAM {team.id}
+                </h2>
+                <div className="h-px bg-white/10 flex-1" />
+                <span className="flex items-center gap-2 px-4 py-2 rounded-full border border-neon-lime/30 bg-neon-lime/5 text-neon-lime font-mono text-[10px] uppercase font-black tracking-widest animate-pulse">
+                  <span className="w-1.5 h-1.5 bg-neon-lime rounded-full" />
+                  ACTIVE
+                </span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
                 {team.members.map((member, idx) => (
-                  <article key={member.name} className={`border-4 border-black rounded-2xl p-5 bg-yellow-50 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${memberCardTilt[idx % memberCardTilt.length]}`}>
-                    <div className="flex items-start gap-3 mb-4">
-                      <div className="w-12 h-12 rounded-lg bg-black text-white flex items-center justify-center font-black text-lg border-2 border-black">
+                  <article key={member.name} className="lab-card p-8 border-white/5 bg-white/[0.02] hover:border-electric-cyan/30 transition-all duration-500 flex flex-col">
+                    <div className="flex items-start gap-5 mb-6">
+                      <div className="w-14 h-14 rounded-2xl bg-electric-cyan/10 text-electric-cyan flex items-center justify-center font-black text-xl border border-electric-cyan/20 group-hover:scale-110 transition-transform">
                         {member.name.split(" ").map((p) => p[0]).join("").slice(0, 2)}
                       </div>
                       <div>
-                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-xl font-black underline decoration-2 underline-offset-4">
+                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-xl font-black text-white hover:text-electric-cyan transition-colors">
                           {member.name}
                         </a>
-                        <p className="font-mono text-[10px] font-black uppercase tracking-widest opacity-60 mt-1">{member.role}</p>
+                        <p className="font-mono text-[10px] font-black uppercase tracking-widest text-electric-cyan/40 mt-1">
+                          {member.role}
+                        </p>
                       </div>
                     </div>
-                    <p className="text-sm font-bold leading-tight opacity-80">{member.bio}</p>
+                    <p className="text-sm font-bold leading-relaxed text-muted flex-1">
+                      {member.bio}
+                    </p>
                   </article>
                 ))}
               </div>

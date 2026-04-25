@@ -22,11 +22,11 @@ const baseUrl = rawBaseUrl.replace(/['"]/g, '').replace(/\/+$/, '');
 export const metadata: Metadata = {
     metadataBase: new URL(baseUrl),
     title: {
-        default: "Entrext Labs | High-Velocity Micro-SaaS Factory",
+        default: "Entrext Labs | Where Velocity is the Moat",
         template: "%s | Entrext Labs"
     },
-    description: "Entrext Labs is a production unit that ships 5 micro-SaaS products every week. We turn market friction into functional software at terminal velocity.",
-    keywords: ["Micro-SaaS", "Venture Lab", "AI Products", "Software Factory", "Startup Incubator"],
+    description: "An experimental lab where Primary Partners validate one-feature products at velocity — and Secondary Partners scale what is already proven. Both get real equity and a community that ships.",
+    keywords: ["Micro-SaaS", "Venture Lab", "Primary Partner", "Secondary Partner", "Founder Ecosystem", "AI Products"],
     authors: [{ name: "Entrext Labs" }],
     creator: "Entrext Labs",
     publisher: "Entrext Labs",
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
         locale: "en_US",
         url: baseUrl,
         siteName: "Entrext Labs",
-        title: "Entrext Labs | High-Velocity Micro-SaaS Factory",
-        description: "We build and ship 5 micro-SaaS products every week. Turning market friction into functional software at terminal velocity.",
+        title: "Entrext Labs | Where Velocity is the Moat",
+        description: "Primary Partners validate products at velocity. Secondary Partners scale what is proven. Real equity. Clear terms. The lab is open.",
         images: [
             {
                 url: `${baseUrl}/Entrext.png`,
@@ -51,14 +51,14 @@ export const metadata: Metadata = {
                 width: 1024,
                 height: 1024,
                 type: "image/png",
-                alt: "Entrext Labs - Innovation Accelerator",
+                alt: "Entrext Labs - Velocity Lab",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Entrext Labs | High-Velocity Micro-SaaS Factory",
-        description: "Shipping 5 micro-SaaS products every week. Terminal velocity software production.",
+        title: "Entrext Labs | Where Velocity is the Moat",
+        description: "Validate fast. Scale further. Own what works. The partner ecosystem for founders.",
         images: [`${baseUrl}/Entrext.png`],
     },
     other: {
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-    themeColor: '#FFD700', // Gold/Yellow to match your branding
+    themeColor: '#0A0A0B',
     width: 'device-width',
     initialScale: 1,
 };
@@ -116,7 +116,7 @@ export default function RootLayout({
                             "url": baseUrl,
                             "logo": `${baseUrl}/Entrext.png`,
                             "image": `${baseUrl}/Entrext.png`,
-                            "description": "High-velocity micro-SaaS factory shipping 5 products every week.",
+                            "description": "An experimental lab where Primary Partners validate products at velocity and Secondary Partners scale what is proven.",
                             "contactPoint": {
                                 "@type": "ContactPoint",
                                 "telephone": "",
