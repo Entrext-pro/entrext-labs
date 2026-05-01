@@ -13,41 +13,44 @@ interface ProductCardProps {
 export const ProductCard = ({ product, index }: ProductCardProps) => {
   return (
     <motion.div
-      whileHover={{ y: -8 }}
-      className="lab-card p-8 flex flex-col h-full relative group border-white/10"
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className="sticker-card p-8 flex flex-col h-full relative group bg-white border-4 border-black hover:bg-black hover:text-white transition-all duration-300"
     >
-      <div className="absolute top-0 right-0 bg-electric-cyan text-black px-4 py-2 rounded-bl-2xl font-mono uppercase font-black text-[10px] shadow-[0_0_15px_rgba(0,245,255,0.2)]">
+      <div className="absolute top-0 right-0 bg-black text-white px-5 py-2 font-mono uppercase font-black text-[10px] tracking-widest shadow-[4px_4px_0px_0px_rgba(250,204,21,1)] group-hover:bg-white group-hover:text-black transition-colors">
         {product.marketLayer}
       </div>
 
-      <div className="mb-10">
-        <div className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-white/30 mb-3">
+      <div className="mb-10 pt-4">
+        <div className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-black/40 group-hover:text-white/40 transition-colors mb-3 italic">
           {product.cluster}
         </div>
-        <h3 className="text-2xl md:text-3xl font-display uppercase font-black leading-tight mb-4 tracking-tight text-white group-hover:text-electric-cyan transition-colors">
+        <h3 className="text-3xl md:text-4xl font-display uppercase italic font-black leading-none mb-6 tracking-tighter text-black group-hover:text-white transition-all group-hover:translate-x-1">
           {product.canonicalLabel ?? product.name}
         </h3>
-        <p className="text-sm md:text-base font-bold leading-relaxed text-muted">
+        <p className="text-base font-bold leading-tight text-black/70 group-hover:text-white/70 transition-colors">
           {product.desc}
         </p>
       </div>
 
-      <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
+      <div className="mt-auto pt-8 border-t-2 border-black/10 flex items-center justify-between">
         <div className="space-y-2">
-          <p className="font-mono text-[10px] font-black uppercase tracking-widest text-white/40">
+          <p className="font-mono text-[10px] font-black uppercase tracking-widest text-black group-hover:text-white transition-colors underline underline-offset-4 decoration-2">
             {product.url}
           </p>
-          <p className="text-[10px] font-black uppercase text-electric-cyan/60">
-            Built by: {product.builder}
+          <p className="text-[10px] font-black uppercase text-black/40 group-hover:text-white/40 transition-colors">
+            OWNER: {product.builder}
           </p>
         </div>
         <a
           href={`https://${product.url}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-12 h-12 bg-white/5 text-white rounded-xl flex items-center justify-center hover:bg-electric-cyan hover:text-black transition-all border border-white/10 group-hover:border-electric-cyan/50"
+          className="w-14 h-14 bg-black text-white rounded-none flex items-center justify-center transition-all border-4 border-black group-hover:bg-white group-hover:text-black group-hover:border-white group-hover:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)]"
         >
-          <ArrowUpRight size={20} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <ArrowUpRight size={24} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={3} />
         </a>
       </div>
     </motion.div>

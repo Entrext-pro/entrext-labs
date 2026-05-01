@@ -39,7 +39,7 @@ const BackToTop = () => {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.5, y: 50 }}
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    className="fixed bottom-8 right-8 z-[60] w-14 h-14 bg-electric-cyan text-black rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,245,255,0.3)] hover:scale-110 transition-all group border border-white/20"
+                    className="fixed bottom-8 right-8 z-[60] w-14 h-14 bg-black text-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)] hover:bg-white hover:text-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group flex items-center justify-center"
                 >
                     <Rocket size={24} className="group-hover:-translate-y-1 transition-transform" />
                 </motion.button>
@@ -60,13 +60,13 @@ export const ClientLayout = ({ children }: { children: React.ReactNode }) => {
     });
 
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-electric-cyan selection:text-black">
+        <div className="min-h-screen bg-yellow-400 text-black selection:bg-black selection:text-yellow-400 font-bold">
             <ScrollToTop />
-            <div className="grainy-overlay opacity-30" />
+            <div className="grainy-overlay" />
             
             {/* Scroll Progress Bar */}
             <motion.div 
-                className="fixed top-0 left-0 right-0 h-1 bg-electric-cyan z-[100] origin-left"
+                className="fixed top-0 left-0 right-0 h-2 bg-black z-[100] origin-left"
                 style={{ scaleX }}
             />
 

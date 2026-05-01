@@ -5,80 +5,79 @@
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
   --font-display: var(--font-space-grotesk), sans-serif;
 
-  /* Premium Lab Palette */
-  --color-obsidian: #0A0A0B;
-  --color-obsidian-light: #161618;
-  --color-electric-cyan: #00F5FF;
-  --color-neon-lime: #CCFF00;
-  --color-muted-gray: #88888E;
+  /* Brutalist Yellow Palette */
+  --color-brand-yellow: #facc15;
+  --color-brand-black: #000000;
+  --color-brand-white: #ffffff;
   
-  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-  --border-glass: 1px solid rgba(255, 255, 255, 0.1);
+  --shadow-sticker: 12px 12px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-sticker-hover: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-btn-primary: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-btn-secondary: 8px 8px 0px 0px rgba(255, 255, 255, 0.3);
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--color-obsidian);
 }
 
 @layer base {
   body {
-    @apply bg-[#0A0A0B] text-white antialiased selection:bg-[#CCFF00] selection:text-black overflow-x-hidden font-medium text-sm md:text-base;
+    @apply bg-yellow-400 text-black antialiased selection:bg-black selection:text-yellow-400 overflow-x-hidden font-bold text-sm md:text-base;
   }
 }
 
-/* Glassmorphism Lab Card */
-.lab-card {
-  @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 transition-all duration-300;
-  box-shadow: var(--shadow-glass);
+/* Premium Brutalist Components */
+@layer components {
+  .sticker-card {
+    @apply border-4 border-black shadow-sticker transition-all duration-300 rounded-none;
+  }
+
+  .sticker-card:hover {
+    @apply translate-x-[4px] translate-y-[4px] shadow-sticker-hover;
+  }
+
+  .btn-primary {
+    @apply bg-black text-white px-8 py-4 border-4 border-black shadow-[8px_8px_0px_0px_rgba(250,204,21,0.4)] font-black uppercase tracking-widest transition-all hover:bg-white hover:text-black active:translate-x-[4px] active:translate-y-[4px] active:shadow-none;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-black border-4 border-black px-8 py-4 font-black uppercase tracking-widest transition-all hover:bg-black hover:text-white active:translate-x-[4px] active:translate-y-[4px] active:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)];
+  }
 }
 
-.lab-card:hover {
-  @apply border-white/20 bg-white/10 -translate-y-1;
+/* Aceternity-style Utilities */
+.grid-bg-dark {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
 }
 
-/* Glowing Border Card */
-.glow-card {
-  @apply relative overflow-hidden rounded-2xl border border-white/10 bg-[#161618] p-8 transition-all;
+.bg-beams {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 10% 20%, rgba(0, 0, 0, 0.05) 0%, transparent 30%),
+              radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.05) 0%, transparent 30%);
+  animation: bg-shift 20s ease-in-out infinite alternate;
 }
 
-.glow-card::before {
+@keyframes bg-shift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.moving-border {
+  @apply relative rounded-none border-4 border-black bg-white overflow-hidden;
+}
+
+.moving-border::after {
   content: "";
   @apply absolute inset-0 opacity-0 transition-opacity duration-500 pointer-events-none;
-  background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(0, 245, 255, 0.1), transparent 40%);
+  background: linear-gradient(90deg, transparent, rgba(250, 204, 21, 0.3), transparent);
+  animation: move-border 3s linear infinite;
 }
 
-.glow-card:hover::before {
-  @apply opacity-100;
-}
-
-/* Buttons */
-.btn-primary {
-  @apply relative inline-flex items-center justify-center px-8 py-4 bg-[#CCFF00] text-black font-black uppercase tracking-widest rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(204,255,0,0.3)];
-}
-
-.btn-secondary {
-  @apply relative inline-flex items-center justify-center px-8 py-4 bg-transparent text-white border-2 border-white/20 font-black uppercase tracking-widest rounded-full transition-all hover:bg-white hover:text-black hover:border-white;
-}
-
-.btn-ghost {
-  @apply text-white/60 hover:text-white transition-colors flex items-center gap-2 uppercase font-black tracking-widest text-xs;
-}
-
-/* Typography */
-.text-gradient-cyan {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#00F5FF] to-[#CCFF00];
-}
-
-.text-muted {
-  @apply text-[#88888E];
-}
-
-/* Background Grids & Grain */
-.grid-bg {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
+@keyframes move-border {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .grainy-overlay {
@@ -89,45 +88,41 @@ html {
   height: 100%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.03;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 /* Animations */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
 }
 
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
 }
 
-@keyframes pulse-soft {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.animate-pulse-soft {
-  animation: pulse-soft 3s ease-in-out infinite;
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }
 
 /* Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
+  width: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: var(--color-obsidian);
+  background: black;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #facc15;
+  border: 2px solid black;
 }
 
 .no-scrollbar::-webkit-scrollbar {

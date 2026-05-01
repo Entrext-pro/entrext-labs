@@ -12,11 +12,13 @@ import { SupportResources } from '../components/home/SupportResources';
 import { FoundersWanted } from '../components/home/FoundersWanted';
 import { FAQ } from '../components/FAQ';
 import { BootstrappedStatement } from '../components/home/BootstrappedStatement';
+import { MarqueeStrip } from '../components/home/MarqueeStrip';
 
 export const Home = () => {
   return (
-    <div className="bg-black">
+    <div className="bg-yellow-400">
       <Hero />
+      <MarqueeStrip />
       <TheModel />
       <Pathways />
       <RolesComparison />
@@ -26,6 +28,7 @@ export const Home = () => {
       <SupportResources />
       <FoundersWanted />
       <FAQ />
+      <MarqueeStrip />
       <BootstrappedStatement />
     </div>
   );

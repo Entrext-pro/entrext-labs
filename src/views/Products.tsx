@@ -14,16 +14,16 @@ const layerTitles: Record<string, string> = {
 
 export const Products = () => {
   return (
-    <div className="pt-24 pb-32 bg-[#0A0A0B]">
-      <section id="products" className="py-20 px-6 max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <p className="font-mono text-xs font-black uppercase tracking-[0.4em] text-electric-cyan mb-4">
+    <div className="pt-24 pb-32 bg-yellow-400">
+      <section id="products" className="py-24 px-6 max-w-7xl mx-auto overflow-hidden">
+        <div className="mb-24">
+          <p className="font-mono text-xs font-black uppercase tracking-[0.4em] text-black/50 mb-4">
             ENTREXT PRODUCT ARCHITECTURE 2026
           </p>
-          <h1 className="text-5xl md:text-8xl font-display uppercase font-black tracking-tighter text-white">
+          <h1 className="text-5xl md:text-[8rem] font-display uppercase italic font-black leading-[0.85] tracking-tighter text-black">
             Product Portfolio.
           </h1>
-          <p className="mt-6 text-xl font-bold text-muted max-w-2xl mx-auto">
+          <p className="mt-10 text-2xl font-black text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] max-w-3xl">
             Velocity validated. Grouped by market layer for maximum strategic clarity.
           </p>
         </div>
@@ -33,17 +33,28 @@ export const Products = () => {
           if (!products.length) return null;
 
           return (
-            <div key={layer} className="mb-24 last:mb-0">
+            <div key={layer} className="mb-32 last:mb-0">
               <div className="flex items-center gap-6 mb-12">
-                 <h2 className="text-3xl md:text-5xl font-display uppercase font-black tracking-tight text-white whitespace-nowrap">
+                 <h2 className="text-3xl md:text-6xl font-display uppercase italic font-black tracking-tight text-black whitespace-nowrap">
                    {layerTitles[layer]}
                  </h2>
-                 <div className="h-px bg-white/10 w-full" />
+                 <div className="h-2 bg-black w-full" />
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              
+              {/* Horizontal Scroll Container for Products */}
+              <div className="flex overflow-x-auto gap-8 pb-12 px-4 -mx-4 no-scrollbar snap-x snap-mandatory">
                 {products.map((product, i) => (
-                  <ProductCard key={`${product.canonicalId ?? product.name}-${i}`} product={product} index={i} />
+                  <div key={`${product.canonicalId ?? product.name}-${i}`} className="snap-center min-w-[320px] md:min-w-[450px]">
+                    <ProductCard product={product} index={i} />
+                  </div>
                 ))}
+                
+                {/* Visual End of Scroll */}
+                <div className="snap-center min-w-[320px] md:min-w-[450px] bg-black text-white p-12 flex flex-col items-center justify-center text-center border-4 border-black">
+                   <p className="font-mono text-[10px] font-black uppercase tracking-widest opacity-50 mb-6 italic">Next in Pipeline</p>
+                   <h3 className="text-3xl font-display font-black uppercase italic tracking-tighter mb-8">Building at Velocity</h3>
+                   <div className="w-16 h-1 bg-yellow-400" />
+                </div>
               </div>
             </div>
           );

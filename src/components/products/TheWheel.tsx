@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { motion } from "motion/react";
 
 const months = [
@@ -36,7 +36,7 @@ export const TheWheel = ({ selectedMonth, setSelectedMonth, activeProductsCount 
               key={month}
               onClick={() => setSelectedMonth(month)}
               className={`px-4 py-3 rounded-xl font-mono text-[10px] font-black uppercase tracking-widest border-4 transition-all ${
-                selectedMonth === month ? "bg-black text-white border-black" : "bg-white text-black border-black hover:bg-yellow-400"
+                selectedMonth === month ? "bg-black text-white border-black" : "bg-white text-black border-black hover:bg-black hover:text-white"
               }`}
             >
               {month.slice(0, 3)}

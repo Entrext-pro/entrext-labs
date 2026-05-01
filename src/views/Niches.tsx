@@ -7,21 +7,23 @@ import { liveNiches, comingSoonNiches } from "../data/niches";
 
 export const Niches = () => {
   return (
-    <div className="pt-32 pb-40 bg-[#0A0A0B]">
-      <section className="py-20 md:py-32 px-6 md:px-8 max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-20 md:mb-32">
-          <p className="font-mono text-xs font-black uppercase tracking-[0.4em] text-neon-lime mb-4">
+    <div className="pt-32 pb-40 bg-yellow-400">
+      <section className="py-24 md:py-36 px-6 md:px-8 max-w-7xl mx-auto relative z-10 overflow-hidden">
+        <div className="mb-24">
+          <p className="font-mono text-xs font-black uppercase tracking-[0.4em] text-black/50 mb-4">
             STRATEGIC MARKET MAPPING
           </p>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-display uppercase font-black leading-[0.9] tracking-tighter mb-8 text-white">
+          <h1 className="text-5xl md:text-[8rem] font-display uppercase italic font-black leading-[0.85] tracking-tighter text-black">
             Market Architecture.
           </h1>
-          <p className="text-base md:text-xl font-bold leading-relaxed max-w-3xl mx-auto text-muted">
+          <p className="mt-10 text-2xl font-black text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] max-w-3xl">
             Products are mapped across high-signal layers with focused clusters to ensure compounding distribution and technical moat.
           </p>
         </div>
-        <LiveNiches niches={liveNiches} />
-        <ComingSoonNiches niches={comingSoonNiches} liveNichesCount={liveNiches.length} />
+        <div className="space-y-32">
+          <LiveNiches niches={liveNiches} />
+          <ComingSoonNiches niches={comingSoonNiches} liveNichesCount={liveNiches.length} />
+        </div>
       </section>
     </div>
   );

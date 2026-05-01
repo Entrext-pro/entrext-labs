@@ -1,14 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { Manifesto } from "../components/teams/Manifesto";
 import { siteContent } from "@/data/siteContent";
+import { ChevronRight, Linkedin, ArrowRight } from "lucide-react";
 
 interface Member {
   name: string;
   role: "TECH FOUNDER" | "GROWTH FOUNDER" | "BUILD IN PUBLIC DEV";
   bio: string;
   linkedin: string;
+  image?: string;
 }
 
 interface Team {
@@ -27,12 +30,14 @@ const teams: Team[] = [
         role: "TECH FOUNDER",
         bio: "One of the earliest builders in the lab. Shipped 3+ products and helped scale one further with a growth partner.",
         linkedin: liSearch("Mohit Sharma"),
+        image: "/team_member_avatars_1777096127078.png"
       },
       {
         name: "Youssef Hassan",
         role: "GROWTH FOUNDER",
         bio: "Runs Build in Public on X with strong audience-building instincts and distribution focus.",
         linkedin: liSearch("Youssef Hassan"),
+        image: "/founder_avatars_2_1777096147260.png"
       },
     ],
   },
@@ -148,88 +153,154 @@ const teams: Team[] = [
   },
 ];
 
-const memberCardTilt = ["rotate-1", "-rotate-1", "rotate-2", "-rotate-2", "rotate-1", "-rotate-1"];
+const MemberCard = ({ member, index }: { member: Member; index: number }) => {
+  const tilt = ["rotate-1", "-rotate-1", "rotate-2", "-rotate-2"][index % 4];
+  
+  return (
+    <motion.article
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className={`min-w-[320px] md:min-w-[400px] sticker-card p-6 flex flex-col bg-white border-4 border-black ${tilt} hover:rotate-0 hover:scale-105 transition-all cursor-grab active:cursor-grabbing`}
+    >
+      <div className="relative aspect-[4/5] bg-yellow-100 border-4 border-black mb-6 overflow-hidden">
+        {member.image ? (
+          <img 
+            src={member.image} 
+            alt={member.name} 
+            className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center bg-black/5">
+             <span className="text-6xl font-display font-black text-black/10">
+               {member.name.split(" ").map(n => n[0]).join("")}
+             </span>
+          </div>
+        )}
+        <div className="absolute top-4 right-4 bg-black text-white px-3 py-1 font-mono text-[10px] font-black uppercase tracking-widest">
+           TEAM READY
+        </div>
+      </div>
+
+      <div className="flex-1">
+        <h3 className="text-2xl md:text-3xl font-display font-black uppercase italic tracking-tighter mb-1">
+          {member.name}
+        </h3>
+        <p className="font-mono text-[10px] font-black uppercase tracking-widest text-black/50 mb-4">
+          {member.role}
+        </p>
+        <p className="text-sm font-bold leading-tight text-black/80 mb-6 line-clamp-3">
+          {member.bio}
+        </p>
+      </div>
+
+      <div className="mt-auto flex items-center justify-between pt-6 border-t-2 border-black/10">
+        <a 
+          href={member.linkedin} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="flex items-center gap-2 text-xs font-black uppercase underline decoration-2 underline-offset-4 hover:text-yellow-600 transition-colors"
+        >
+          <Linkedin size={14} /> Profile
+        </a>
+        <div className="w-10 h-10 bg-black text-white rounded-none flex items-center justify-center">
+          <ArrowRight size={18} />
+        </div>
+      </div>
+    </motion.article>
+  );
+};
 
 export const Teams = () => {
   const content = siteContent.teams;
 
   return (
-    <div className="pt-24 pb-32 bg-[#0A0A0B]">
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+    <div className="pt-24 pb-32 bg-yellow-400">
+      <section className="py-24 px-6 max-w-7xl mx-auto overflow-hidden">
         <div className="mb-24">
-          <p className="font-mono text-xs font-black uppercase tracking-[0.4em] text-electric-cyan mb-4">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="font-mono text-xs font-black uppercase tracking-[0.4em] text-black/50 mb-4"
+          >
             {content.eyebrow}
-          </p>
-          <h1 className="text-5xl md:text-8xl font-display uppercase font-black tracking-tighter mt-4 text-white">
+          </motion.p>
+          <motion.h1 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="text-5xl md:text-[8rem] font-display uppercase italic font-black tracking-tighter mt-4 leading-[0.85] text-black"
+          >
             {content.title}
-          </h1>
-          <p className="text-2xl md:text-4xl font-black mt-8 text-white italic tracking-tight">
+          </motion.h1>
+          <p className="text-2xl md:text-4xl font-black mt-10 text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] max-w-4xl">
             {content.subtitle}
           </p>
-          <p className="text-xl font-bold mt-6 text-muted max-w-4xl leading-relaxed">
-            {content.description}
-          </p>
-
+          
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
             {[
               ["5", "TEAMS ACTIVE"],
               ["14", "FOUNDERS"],
               ["20+", "PRODUCTS SHIPPED"],
               ["OPEN", "FOUNDING SEATS"],
-            ].map(([v, l]) => (
-              <div key={l} className="lab-card p-6 text-center border-white/5 bg-white/[0.02]">
-                <div className="text-3xl md:text-5xl font-display font-black text-electric-cyan tracking-tighter">{v}</div>
-                <div className="font-mono text-[10px] font-black uppercase tracking-widest text-muted mt-2">{l}</div>
-              </div>
+            ].map(([v, l], i) => (
+              <motion.div 
+                key={l}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white border-4 border-black p-6 text-center shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+              >
+                <div className="text-3xl md:text-5xl font-display font-black text-black tracking-tighter italic uppercase">{v}</div>
+                <div className="font-mono text-[10px] font-black uppercase tracking-widest text-black/40 mt-2">{l}</div>
+              </motion.div>
             ))}
           </div>
         </div>
 
-        <div className="space-y-24 mb-32">
+        <div className="space-y-32">
           {teams.map((team) => (
-            <section key={team.id} className="relative group">
-              <div className="absolute -left-12 top-0 text-[10rem] font-display font-black text-white/[0.03] select-none pointer-events-none group-hover:text-electric-cyan/[0.05] transition-colors duration-700">
-                {team.id}
-              </div>
-              
-              <div className="flex items-center gap-6 mb-12 relative z-10">
-                <h2 className="text-3xl md:text-5xl font-display font-black uppercase tracking-tight text-white">
+            <div key={team.id} className="relative">
+              <div className="flex items-center gap-6 mb-12">
+                <h2 className="text-4xl md:text-7xl font-display font-black uppercase italic tracking-tight text-black">
                   TEAM {team.id}
                 </h2>
-                <div className="h-px bg-white/10 flex-1" />
-                <span className="flex items-center gap-2 px-4 py-2 rounded-full border border-neon-lime/30 bg-neon-lime/5 text-neon-lime font-mono text-[10px] uppercase font-black tracking-widest animate-pulse">
-                  <span className="w-1.5 h-1.5 bg-neon-lime rounded-full" />
-                  ACTIVE
-                </span>
+                <div className="h-2 bg-black flex-1" />
+                <div className="bg-white border-4 border-black px-6 py-2 flex items-center gap-2">
+                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                   <span className="font-mono text-xs font-black uppercase tracking-widest">ACTIVE</span>
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
-                {team.members.map((member, idx) => (
-                  <article key={member.name} className="lab-card p-8 border-white/5 bg-white/[0.02] hover:border-electric-cyan/30 transition-all duration-500 flex flex-col">
-                    <div className="flex items-start gap-5 mb-6">
-                      <div className="w-14 h-14 rounded-2xl bg-electric-cyan/10 text-electric-cyan flex items-center justify-center font-black text-xl border border-electric-cyan/20 group-hover:scale-110 transition-transform">
-                        {member.name.split(" ").map((p) => p[0]).join("").slice(0, 2)}
-                      </div>
-                      <div>
-                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-xl font-black text-white hover:text-electric-cyan transition-colors">
-                          {member.name}
-                        </a>
-                        <p className="font-mono text-[10px] font-black uppercase tracking-widest text-electric-cyan/40 mt-1">
-                          {member.role}
-                        </p>
-                      </div>
+              {/* Horizontal Scroll Container */}
+              <div className="relative group">
+                <div className="flex overflow-x-auto gap-8 pb-12 px-4 -mx-4 no-scrollbar cursor-grab active:cursor-grabbing snap-x snap-mandatory">
+                  {team.members.map((member, idx) => (
+                    <div key={member.name} className="snap-center">
+                      <MemberCard member={member} index={idx} />
                     </div>
-                    <p className="text-sm font-bold leading-relaxed text-muted flex-1">
-                      {member.bio}
-                    </p>
-                  </article>
-                ))}
+                  ))}
+                  
+                  {/* Empty State / Call to Action at the end of the scroll */}
+                  <div className="snap-center min-w-[320px] md:min-w-[400px] border-4 border-dashed border-black/20 p-8 flex flex-col items-center justify-center text-center">
+                    <p className="font-mono text-[10px] font-black uppercase tracking-widest opacity-30 mb-4">Space Available</p>
+                    <h3 className="text-2xl font-display font-black uppercase italic tracking-tighter opacity-20 mb-8">Join Team {team.id}</h3>
+                    <a href="https://tally.so/r/dW6V0o" className="btn-primary w-full text-xs">Apply Now</a>
+                  </div>
+                </div>
+                
+                {/* Horizontal Scroll Progress or Arrows could go here */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden lg:flex items-center justify-center w-12 h-12 bg-black text-white pointer-events-none opacity-0 group-hover:opacity-50 transition-opacity">
+                  <ChevronRight size={32} />
+                </div>
               </div>
-            </section>
+            </div>
           ))}
         </div>
 
-        <Manifesto />
+        <div className="mt-32">
+          <Manifesto />
+        </div>
       </section>
     </div>
   );
